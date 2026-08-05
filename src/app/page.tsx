@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Star, Shield, Clock, Users, Car, MapPin, Phone, Luggage, UserCheck, Wind } from 'lucide-react';
+import { ArrowRight, Star, Shield, Clock, Users, MapPin, Phone, Luggage, UserCheck, Wind } from 'lucide-react';
 import { getTourPackages, getDestinations, getVehicles, getReviews, getSettings } from '@/lib/data';
 import { TourCard } from '@/components/tours/TourCard';
 import { TransportBooking } from '@/components/home/TransportBooking';
@@ -27,6 +27,7 @@ export default async function HomePage() {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy-900/70 via-navy-900/50 to-navy-900/80" />
         </div>

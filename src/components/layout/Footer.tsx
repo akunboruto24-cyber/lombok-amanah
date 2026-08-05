@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+import type { SiteSettings } from '@/types/database';
 
-export function Footer() {
+export function Footer({ settings }: { settings: SiteSettings }) {
   return (
     <footer className="bg-navy-900 border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
@@ -51,26 +52,26 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Phone className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href="https://wa.me/6281907855550" target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
-                  +62 819-0785-5550
+                <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
+                  {settings.phone}
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Globe className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href="https://instagram.com/lombokamanahtour" target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
+                <a href={settings.instagram} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
                   @lombokamanahtour
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href="mailto:hello@lombokamanahtour.com" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
-                  hello@lombokamanahtour.com
+                <a href={`mailto:${settings.email}`} className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
+                  {settings.email}
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
                 <span className="text-[13px] text-white/30 leading-[1.7]">
-                  Jl. Raya Senggigi No. 123<br />West Lombok, NTB 83355
+                  {settings.address}
                 </span>
               </li>
             </ul>

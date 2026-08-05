@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
+import { getSettings } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: {
@@ -18,11 +19,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const settings = await getSettings();
+
   return (
     <html lang="id">
       <head>
@@ -36,8 +39,8 @@ export default function RootLayout({
       <body className="min-h-screen bg-white text-navy-900 font-body antialiased">
         <Navbar />
         <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <Footer settings={settings} />
+        <WhatsAppFloat whatsapp={settings.whatsapp} />
       </body>
     </html>
   );
