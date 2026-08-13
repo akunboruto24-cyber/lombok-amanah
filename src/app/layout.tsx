@@ -1,7 +1,20 @@
 import type { Metadata } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { PublicShell } from '@/components/layout/PublicShell';
 import { getSettings } from '@/lib/data';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -25,15 +38,7 @@ export default async function RootLayout({
   const settings = await getSettings();
 
   return (
-    <html lang="id">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="id" className={`${inter.variable} ${playfair.variable}`}>
       <body className="min-h-screen font-body antialiased">
         <PublicShell settings={settings}>{children}</PublicShell>
       </body>
