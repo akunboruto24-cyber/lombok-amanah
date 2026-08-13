@@ -114,17 +114,17 @@ export const destinations: Destination[] = [
 // ============================================================
 export const vehicles: Vehicle[] = [
   {
-    id: 'veh-001', name: 'Toyota Avanza Veloz', slug: 'avanza-veloz',
-    photo: 'https://images.pexels.com/photos/37029578/pexels-photo-37029578.jpeg?auto=compress&cs=tinysrgb&w=800',
+    id: 'veh-001', name: 'Toyota All New Avanza', slug: 'all-new-avanza',
+    photo: '/vehicles/avanza-new.jpg',
     seat_capacity: 4, luggage_capacity: 2, daily_price: 500000,
-    description: 'MPV premium dengan kabin luas, cocok untuk grup kecil dan keluarga.',
+    description: 'MPV modern dengan desain baru, kabin luas dan nyaman untuk grup kecil dan keluarga.',
     features: ['AC', 'Sopir Profesional', 'BBM', 'Air Mineral'], is_active: true, display_order: 1,
   },
   {
-    id: 'veh-002', name: 'Toyota Avanza', slug: 'avanza',
-    photo: 'https://images.pexels.com/photos/16811694/pexels-photo-16811694.jpeg?auto=compress&cs=tinysrgb&w=800',
-    seat_capacity: 4, luggage_capacity: 2, daily_price: 400000,
-    description: 'MPV andal dan ekonomis, ideal untuk transfer bandara dan tur kota.',
+    id: 'veh-002', name: 'Honda BR-V', slug: 'brv',
+    photo: '/vehicles/brv.jpg',
+    seat_capacity: 4, luggage_capacity: 2, daily_price: 450000,
+    description: 'SUV compact stylish dengan kabin nyaman, cocok untuk tur dan transfer.',
     features: ['AC', 'Sopir Profesional', 'BBM', 'Air Mineral'], is_active: true, display_order: 2,
   },
   {
