@@ -1,7 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Clock, MapPin, Users, Star } from 'lucide-react';
 import { formatPrice } from '@/lib/data';
+import { T } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
 
 export function TourCard({ tour }: { tour: TourPackage }) {
@@ -43,7 +46,6 @@ export function TourCard({ tour }: { tour: TourPackage }) {
           </h3>
         </Link>
 
-        {/* Rating */}
         {tour.review_count && tour.review_count > 0 && (
           <div className="flex items-center gap-1.5 mb-3">
             <Star className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
@@ -52,7 +54,6 @@ export function TourCard({ tour }: { tour: TourPackage }) {
           </div>
         )}
 
-        {/* Destinations */}
         {destNames && (
           <div className="flex items-start gap-2 mb-3">
             <MapPin className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
@@ -60,7 +61,6 @@ export function TourCard({ tour }: { tour: TourPackage }) {
           </div>
         )}
 
-        {/* Meta */}
         <div className="flex items-center gap-4 pt-3 border-t border-navy-900/[0.06]">
           {tour.duration && (
             <div className="flex items-center gap-1.5">
@@ -70,7 +70,7 @@ export function TourCard({ tour }: { tour: TourPackage }) {
           )}
           <div className="flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-navy-900/30" />
-            <span className="text-[12px] text-navy-900/50">Max {tour.max_passenger} orang</span>
+            <span className="text-[12px] text-navy-900/50">Max {tour.max_passenger} <T en="people">orang</T></span>
           </div>
         </div>
       </div>

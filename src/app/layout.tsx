@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Navbar } from '@/components/layout/Navbar';
-import { Footer } from '@/components/layout/Footer';
-import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
+import { PublicShell } from '@/components/layout/PublicShell';
 import { getSettings } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -10,7 +8,7 @@ export const metadata: Metadata = {
     default: 'Lombok Amanah Tour & Travel — Private Transfers & Island Experiences',
     template: '%s | Lombok Amanah Tour & Travel',
   },
-  description: 'Lombok Amanah Tour & Travel — Jasa tour, transport, dan perjalanan wisata profesional di Pulau Lombok, NTB. Trusted by 10,000+ travelers.',
+  description: 'Lombok Amanah Tour & Travel — Jasa tour, transport, dan perjalanan wisata profesional di Pulau Lombok, NTB.',
   keywords: ['lombok tour', 'lombok travel', 'tour lombok', 'transport lombok', 'private transfer lombok'],
   openGraph: {
     type: 'website',
@@ -36,11 +34,8 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-white text-navy-900 font-body antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer settings={settings} />
-        <WhatsAppFloat whatsapp={settings.whatsapp} />
+      <body className="min-h-screen font-body antialiased">
+        <PublicShell settings={settings}>{children}</PublicShell>
       </body>
     </html>
   );

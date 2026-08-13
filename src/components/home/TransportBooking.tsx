@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { MapPin, Calendar, Users, ArrowRight, Clock, Hotel } from 'lucide-react';
 import { formatWhatsAppLink } from '@/lib/data';
+import { T, useLanguage } from '@/lib/language';
 
 interface Location {
   id: string;
@@ -36,6 +37,7 @@ const destinationLocations: Location[] = [
 const areaOptions = ['Senggigi', 'Kuta Mandalika', 'Mataram', 'Praya', 'Sekotong', 'Selong', 'Sembalun', 'Bangsal / Pemenang', 'Lainnya'];
 
 export function TransportBooking({ whatsapp }: { whatsapp: string }) {
+  const { t } = useLanguage();
   const [pickupMode, setPickupMode] = useState<'loc' | 'hotel'>('loc');
   const [pickup, setPickup] = useState('');
   const [pickupHotel, setPickupHotel] = useState('');
@@ -132,14 +134,12 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
             <div className="w-10 h-[1px] bg-gold-400" />
           </div>
           <h2 className="text-3xl sm:text-[44px] font-display font-bold text-navy-900 leading-[1.15] mb-5">
-            Book Your Private Ride
+            <T en="Book Your Private Ride">Pesan Kendaraan Pribadi</T>
           </h2>
           <p className="text-navy-900/50 max-w-2xl mx-auto text-[16px] font-light leading-[1.7]">
-            Pilih lokasi penjemputan &amp; tujuan, lalu pesan langsung via WhatsApp. Cepat dan mudah!
-            <br />
-            <span className="text-navy-900/30 text-[14px]">
-              Choose your pickup &amp; destination, then book directly via WhatsApp.
-            </span>
+            <T en="Choose your pickup & destination, then book directly via WhatsApp. Fast and easy!">
+              Pilih lokasi penjemputan &amp; tujuan, lalu pesan langsung via WhatsApp. Cepat dan mudah!
+            </T>
           </p>
         </div>
 
@@ -260,7 +260,7 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
                   : 'bg-navy-900/10 text-navy-900/30 cursor-not-allowed'
               }`}
             >
-              Pesan via WhatsApp / Book via WhatsApp
+              <T en="Book via WhatsApp">Pesan via WhatsApp</T>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
