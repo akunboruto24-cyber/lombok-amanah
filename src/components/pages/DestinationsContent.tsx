@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { MapPin, Clock, Ticket } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { T, useLanguage } from '@/lib/language';
 import type { Destination } from '@/types/database';
 
@@ -61,21 +61,7 @@ export function DestinationsContent({ destinations }: { destinations: Destinatio
                     <div className="p-5">
                       <h3 className="text-[15px] font-bold text-navy-900 mb-1">{dest.name}</h3>
                       <p className="text-[11px] text-gold-400 font-medium uppercase tracking-wider mb-3">{dest.location}</p>
-                      <p className="text-[13px] text-navy-900/50 leading-[1.7] mb-4">{dest.description}</p>
-                      <div className="flex flex-wrap gap-3 pt-3 border-t border-navy-900/[0.06]">
-                        {dest.opening_hours && (
-                          <div className="flex items-center gap-1.5">
-                            <Clock className="w-3.5 h-3.5 text-gold-400" />
-                            <span className="text-[11px] text-navy-900/40">{dest.opening_hours}</span>
-                          </div>
-                        )}
-                        {dest.entrance_fee && (
-                          <div className="flex items-center gap-1.5">
-                            <Ticket className="w-3.5 h-3.5 text-gold-400" />
-                            <span className="text-[11px] text-navy-900/40">{dest.entrance_fee}</span>
-                          </div>
-                        )}
-                      </div>
+                      <p className="text-[13px] text-navy-900/50 leading-[1.7]">{dest.description}</p>
                     </div>
                   </article>
                 ))}
