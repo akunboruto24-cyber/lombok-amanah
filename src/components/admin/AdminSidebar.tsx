@@ -53,7 +53,7 @@ export function AdminSidebar() {
         <div className="p-5 border-b border-white/5 flex items-center justify-between">
           <Link href="/admin" className="flex flex-col">
             <span className="text-lg font-bold text-white tracking-wide">
-              LOMBOK <span className="text-[#C8A45A]">AMANAH</span>
+              LOMBOK <span className="text-[#C8A45A]">NUSA ALAM</span>
             </span>
             <span className="text-[10px] text-white/30 tracking-[0.2em] uppercase">Admin Panel</span>
           </Link>

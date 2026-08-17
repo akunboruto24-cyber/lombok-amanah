@@ -4,7 +4,7 @@ import { AboutContent } from '@/components/pages/AboutContent';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Lombok Amanah Tour & Travel — jasa tour, transport, dan perjalanan wisata profesional di Pulau Lombok.',
+  description: 'Lombok Nusa Alam Tour & Travel — jasa tour, transport, dan perjalanan wisata profesional di Pulau Lombok.',
 };
 
 export default async function AboutPage() {

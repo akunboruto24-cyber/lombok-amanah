@@ -1,5 +1,5 @@
 -- ============================================================
--- LOMBOK AMANAH — Supabase Schema
+-- LOMBOK NUSA ALAM — Supabase Schema
 -- Jalankan di Supabase SQL Editor
 -- ============================================================
 
@@ -180,7 +180,7 @@ CREATE TABLE faqs (
 -- SITE SETTINGS (single row)
 CREATE TABLE site_settings (
   id INTEGER PRIMARY KEY DEFAULT 1 CHECK (id = 1),
-  site_name TEXT DEFAULT 'Lombok Amanah Tour & Travel',
+  site_name TEXT DEFAULT 'Lombok Nusa Alam Tour & Travel',
   tagline TEXT DEFAULT 'Tour And Travel',
   phone TEXT,
   whatsapp TEXT,

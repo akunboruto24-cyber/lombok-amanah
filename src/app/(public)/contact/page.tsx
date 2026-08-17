@@ -4,7 +4,7 @@ import { ContactContent } from '@/components/pages/ContactContent';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Hubungi Lombok Amanah Tour & Travel untuk booking tour dan transport di Lombok.',
+  description: 'Hubungi Lombok Nusa Alam Tour & Travel untuk booking tour dan transport di Lombok.',
 };
 
 export default async function ContactPage() {

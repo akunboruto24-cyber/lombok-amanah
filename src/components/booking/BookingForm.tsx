@@ -31,7 +31,7 @@ export function BookingForm({ tour, whatsapp }: { tour: TourPackage; whatsapp: s
       ? new Date(date).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
       : '-';
 
-    const msg = `Halo Lombok Amanah! 🌴
+    const msg = `Halo Lombok Nusa Alam! 🌴
 
 Saya ingin memesan tour:
 

@@ -79,7 +79,7 @@ export function TransportBooking({ whatsapp }: { whatsapp: string }) {
       destMaps = loc?.maps ? `\n📌 Maps: ${loc.maps}` : '';
     }
 
-    const msg = `Halo Lombok Amanah! 🚗
+    const msg = `Halo Lombok Nusa Alam! 🚗
 
 Saya ingin memesan transport:
 

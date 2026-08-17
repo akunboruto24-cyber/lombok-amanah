@@ -65,7 +65,7 @@ export function ContactContent({ settings }: { settings: SiteSettings }) {
             </div>
             <div>
               <p className="text-[13px] font-bold text-navy-900 mb-1">Instagram</p>
-              <p className="text-[14px] text-navy-900/50">@lombokamanahtour</p>
+              <p className="text-[14px] text-navy-900/50">@lomboknusaalam</p>
             </div>
           </a>
 

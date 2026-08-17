@@ -15,7 +15,7 @@ export function AboutContent({ settings }: { settings: SiteSettings }) {
             <div className="w-10 h-[1px] bg-gold-400" />
           </div>
           <h1 className="text-3xl sm:text-[44px] font-display font-bold text-navy-900 leading-[1.15] mb-6">
-            Lombok Amanah Tour &amp; Travel
+            Lombok Nusa Alam Tour &amp; Travel
           </h1>
           <p className="text-navy-900/50 max-w-2xl mx-auto text-[16px] font-light leading-[1.8]">
             <T en="We are an experienced tour and transportation company on Lombok Island, West Nusa Tenggara. We prioritize comfort, safety, and customer satisfaction in every journey.">

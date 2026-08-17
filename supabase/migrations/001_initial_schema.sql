@@ -1,5 +1,5 @@
 -- ============================================================
--- LOMBOK AMANAH TOUR & TRAVEL — DATABASE SCHEMA
+-- LOMBOK NUSA ALAM TOUR & TRAVEL — DATABASE SCHEMA
 -- Version 1.0
 -- ============================================================
 

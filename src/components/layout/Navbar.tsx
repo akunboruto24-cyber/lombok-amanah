@@ -36,7 +36,7 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between">
         <Link href="/" className="flex flex-col leading-none group">
           <span className={`text-[22px] font-display font-bold tracking-[0.02em] transition-colors ${scrolled ? 'text-navy-900' : 'text-white'}`}>
-            LOMBOK <span className="text-gold-400">AMANAH</span>
+            LOMBOK <span className="text-gold-400">NUSA ALAM</span>
           </span>
           <span className={`text-[9px] font-medium tracking-[0.25em] uppercase mt-1 transition-colors ${scrolled ? 'text-navy-900/40' : 'text-white/40'}`}>
             Tour And Travel

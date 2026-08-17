@@ -1,7 +1,7 @@
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
 import { isAuthenticated } from '@/lib/admin-auth';
 
-export const metadata = { title: 'Admin — Lombok Amanah' };
+export const metadata = { title: 'Admin — Lombok Nusa Alam' };
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const authed = await isAuthenticated();

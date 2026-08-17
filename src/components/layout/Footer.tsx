@@ -73,7 +73,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
               <li className="flex items-start gap-2">
                 <Globe className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
                 <a href={settings.instagram} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
-                  @lombokamanahtour
+                  @lomboknusaalam
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -93,7 +93,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
         </div>
 
         <div className="pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[12px] text-white/20">&copy; 2026 Lombok Amanah Tour &amp; Travel. All rights reserved.</p>
+          <p className="text-[12px] text-white/20">&copy; 2026 Lombok Nusa Alam Tour &amp; Travel. All rights reserved.</p>
           <div className="flex gap-8">
             <Link href="/faq" className="text-[12px] text-white/20 hover:text-gold-400 transition-colors">FAQ</Link>
             <Link href="/about" className="text-[12px] text-white/20 hover:text-gold-400 transition-colors"><T en="About">Tentang</T></Link>

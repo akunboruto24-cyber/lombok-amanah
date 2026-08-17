@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
         </form>
 
         <p className="text-center text-white/20 text-xs mt-6">
-          &copy; 2026 Lombok Amanah Tour & Travel
+          &copy; 2026 Lombok Nusa Alam Tour & Travel
         </p>
       </div>
     </div>

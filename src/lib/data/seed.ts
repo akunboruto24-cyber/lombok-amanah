@@ -4,13 +4,13 @@ import type { Destination, Vehicle, TourPackage, FAQ, Review, SiteSettings } fro
 // SITE SETTINGS
 // ============================================================
 export const siteSettings: SiteSettings = {
-  site_name: 'Lombok Amanah Tour & Travel',
+  site_name: 'Lombok Nusa Alam Tour & Travel',
   tagline: 'Tour And Travel',
   phone: '+6281907855550',
   whatsapp: '6281907855550',
-  email: 'hello@lombokamanahtour.com',
+  email: 'hello@lomboknusaalam.com',
   address: 'Jl. Raya Senggigi No. 123, West Lombok, NTB 83355, Indonesia',
-  instagram: 'https://instagram.com/lombokamanahtour',
+  instagram: 'https://instagram.com/lomboknusaalam',
   facebook: '',
   google_maps: '',
   logo: '/logo.png',
@@ -387,6 +387,6 @@ export const reviews: Review[] = [
   { id: 'rev-001', booking_id: null, customer_id: null, tour_id: 'tour-001', rating: 5, comment: 'Tour Sasak sangat menyenangkan! Sopirnya ramah dan berpengalaman. Desa Sade sangat menarik dan Pantai Tanjung Aan indah sekali.', photos: [], is_approved: true, created_at: '2026-07-15T10:00:00Z', customer: { id: 'c1', name: 'Sarah Mitchell', email: null, phone: '+61', country: 'Australia', language: 'en' } },
   { id: 'rev-002', booking_id: null, customer_id: null, tour_id: 'tour-002', rating: 5, comment: 'Best beach tour ever! Selong Belanak is paradise. The driver knew all the best photo spots. Highly recommended!', photos: [], is_approved: true, created_at: '2026-07-20T10:00:00Z', customer: { id: 'c2', name: 'Thomas Weber', email: null, phone: '+49', country: 'Germany', language: 'en' } },
   { id: 'rev-003', booking_id: null, customer_id: null, tour_id: 'tour-008', rating: 5, comment: 'Air terjun Tiu Kelep luar biasa! Treknya seru tapi worth it. Sopirnya juga sabar nunggu kami trekking cukup lama.', photos: [], is_approved: true, created_at: '2026-07-25T10:00:00Z', customer: { id: 'c3', name: 'Rizal Pratama', email: null, phone: '+62', country: 'Indonesia', language: 'id' } },
-  { id: 'rev-004', booking_id: null, customer_id: null, tour_id: 'tour-009', rating: 5, comment: 'Pink Beach is absolutely stunning. Long drive but totally worth it. Lombok Amanah made it very comfortable.', photos: [], is_approved: true, created_at: '2026-07-28T10:00:00Z', customer: { id: 'c4', name: 'Yuki Tanaka', email: null, phone: '+81', country: 'Japan', language: 'en' } },
+  { id: 'rev-004', booking_id: null, customer_id: null, tour_id: 'tour-009', rating: 5, comment: 'Pink Beach is absolutely stunning. Long drive but totally worth it. Lombok Nusa Alam made it very comfortable.', photos: [], is_approved: true, created_at: '2026-07-28T10:00:00Z', customer: { id: 'c4', name: 'Yuki Tanaka', email: null, phone: '+81', country: 'Japan', language: 'en' } },
   { id: 'rev-005', booking_id: null, customer_id: null, tour_id: 'tour-004', rating: 5, comment: 'Pemandangan dari Bukit Selong luar biasa indah! Sawah terasering dengan latar Gunung Rinjani. Wajib dikunjungi!', photos: [], is_approved: true, created_at: '2026-08-01T10:00:00Z', customer: { id: 'c5', name: 'Mei Lin', email: null, phone: '+65', country: 'Singapore', language: 'en' } },
 ];

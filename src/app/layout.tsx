@@ -18,15 +18,15 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Lombok Amanah Tour & Travel — Private Transfers & Island Experiences',
-    template: '%s | Lombok Amanah Tour & Travel',
+    default: 'Lombok Nusa Alam Tour & Travel — Private Transfers & Island Experiences',
+    template: '%s | Lombok Nusa Alam Tour & Travel',
   },
-  description: 'Lombok Amanah Tour & Travel — Jasa tour, transport, dan perjalanan wisata profesional di Pulau Lombok, NTB.',
+  description: 'Lombok Nusa Alam Tour & Travel — Jasa tour, transport, dan perjalanan wisata profesional di Pulau Lombok, NTB.',
   keywords: ['lombok tour', 'lombok travel', 'tour lombok', 'transport lombok', 'private transfer lombok'],
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    siteName: 'Lombok Amanah Tour & Travel',
+    siteName: 'Lombok Nusa Alam Tour & Travel',
   },
 };
 
