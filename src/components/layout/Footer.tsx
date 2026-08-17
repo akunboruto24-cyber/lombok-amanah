@@ -13,7 +13,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
           <div>
             <div className="flex flex-col leading-none mb-5">
               <span className="text-[20px] font-display font-bold text-white tracking-[0.02em]">
-                LOMBOK <span className="text-gold-400">AMANAH</span>
+                LOMBOK <span className="text-gold-400">NUSA ALAM</span>
               </span>
               <span className="text-[9px] font-medium text-white/25 tracking-[0.25em] uppercase mt-1.5">
                 Tour And Travel

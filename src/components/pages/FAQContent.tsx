@@ -41,7 +41,7 @@ export function FAQContent({ faqs, settings }: { faqs: FAQ[]; settings: SiteSett
         <div className="text-center bg-slate-50 rounded-2xl p-8 border border-navy-900/[0.04]">
           <p className="text-[15px] text-navy-900/60 mb-4"><T en="Still have questions?">Masih ada pertanyaan?</T></p>
           <a
-            href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Amanah!%20Saya%20ada%20pertanyaan.`}
+            href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Nusa%20Alam!%20Saya%20ada%20pertanyaan.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gold-400 text-navy-900 font-bold rounded-full hover:bg-gold-300 transition-all text-[14px]"

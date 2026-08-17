@@ -26,7 +26,7 @@ export function ContactContent({ settings }: { settings: SiteSettings }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
           <a
-            href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Amanah!`}
+            href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Nusa%20Alam!`}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-start gap-4 p-6 bg-[#25D366]/5 rounded-2xl border border-[#25D366]/10 hover:border-[#25D366]/30 transition-all"

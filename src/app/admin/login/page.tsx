@@ -44,7 +44,7 @@ export default function AdminLoginPage() {
             <Lock className="w-8 h-8 text-[#C8A45A]" />
           </div>
           <h1 className="text-2xl font-bold text-white font-[family-name:var(--font-display)]">
-            LOMBOK <span className="text-[#C8A45A]">AMANAH</span>
+            LOMBOK <span className="text-[#C8A45A]">NUSA ALAM</span>
           </h1>
           <p className="text-white/40 text-sm mt-1">Admin Dashboard</p>
         </div>

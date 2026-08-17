@@ -49,7 +49,7 @@ export function AboutContent({ settings }: { settings: SiteSettings }) {
             <T en="Contact us now to book a tour or ask questions.">Hubungi kami sekarang untuk booking tour atau tanya-tanya.</T>
           </p>
           <a
-            href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Amanah!%20Saya%20ingin%20tanya%20tentang%20tour.`}
+            href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Nusa%20Alam!%20Saya%20ingin%20tanya%20tentang%20tour.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gold-400 text-navy-900 font-bold rounded-full hover:bg-gold-300 transition-all text-[15px]"
