@@ -110,6 +110,9 @@ export const destinations: Destination[] = [
   {
     id: 'dest-030', slug: 'tete-batu', name: 'Tete Batu', description: 'Desa wisata di lereng Rinjani dengan pemandangan sawah terasering, air terjun, dan suasana pedesaan yang asri.', category: 'mountain', location: 'Lombok Timur', latitude: -8.5300, longitude: 116.4200, opening_hours: '24 Jam', entrance_fee: 'Gratis', cover_image: '/destinations/tete batu.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 30,
   },
+  {
+    id: 'dest-031', slug: 'ekas', name: 'Pantai Ekas', description: 'Teluk tersembunyi di selatan Lombok Timur dengan ombak surfing kelas dunia dan pemandangan tebing dramatis.', category: 'beach', location: 'Lombok Timur', latitude: -8.8600, longitude: 116.5200, opening_hours: '24 Jam', entrance_fee: 'Gratis', cover_image: null, gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 31,
+  },
 ];
 
 // ============================================================
@@ -146,7 +149,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-001', slug: 'sasak-tour', name: 'Sasak Tour', category: 'daily_tour',
     price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/37517800/pexels-photo-37517800.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/desa adat sade.jpg',
     gallery: [], description: 'Jelajahi jantung budaya Lombok — kunjungi Desa Adat Sade yang bersejarah, lihat Sirkuit Mandalika berkelas dunia, bersantai di Pantai Kuta yang memukau, nikmati panorama dari Bukit Merese, dan berenang di Pantai Tanjung Aan.',
     description_en: 'Explore the cultural heart of Lombok — visit the ancient Sade Traditional Village, see the world-class Mandalika Circuit, relax at the stunning Kuta Beach, enjoy panoramic views from Merese Hill, and swim at beautiful Tanjung Aan Beach.',
     itinerary: [
@@ -169,7 +172,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-002', slug: 'tour-pantai', name: 'Tour Pantai', category: 'daily_tour',
     price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/3290667/pexels-photo-3290667.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Pantai Kuta.jpg',
     gallery: [], description: 'Rasakan pantai-pantai terbaik Lombok Selatan dalam satu hari — lengkungan pirus Selong Belanak, surga tersembunyi Pantai Mawun, Pantai Kuta yang ikonik, Tanjung Aan yang jernih, dan sunset emas dari Bukit Merese.',
     description_en: 'Experience the best beaches of South Lombok in one unforgettable day — the turquoise crescent of Selong Belanak, hidden paradise of Mawun Beach, iconic Kuta Beach, crystal-clear Tanjung Aan, and golden sunset views from Merese Hill.',
     itinerary: [
@@ -191,7 +194,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-003', slug: 'tour-kota-mataram', name: 'Tour Kota Mataram', category: 'daily_tour',
     price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/26246026/pexels-photo-26246026.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Islamic Center.jpg',
     gallery: [], description: 'Temukan ibu kota NTB — kunjungi Islamic Center NTB yang megah, jelajahi Monkey Forest, nikmati pemandangan pesisir dari Bukit Malimbu, berjalan di Pantai Senggigi, dan susuri istana air bersejarah Taman Narmada.',
     description_en: 'Discover the capital city of NTB — visit the magnificent Islamic Center NTB, explore Monkey Forest, take in coastal views from Malimbu Hill, stroll along Senggigi Beach, and wander through the historic Taman Narmada water palace.',
     itinerary: [
@@ -213,7 +216,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-004', slug: 'tour-sembalun', name: 'Tour Sembalun', category: 'daily_tour',
     price: 850000, price_usd: 53, duration: '10-12 jam', meeting_time: '07:00', finish_time: '18:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/7565653/pexels-photo-7565653.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Pusuk Sembalun.jpg',
     gallery: [], description: 'Jelajahi dataran tinggi Lombok Utara — telusuri Monkey Forest, kunjungi Masjid Bayan Kuno, nikmati pemandangan dari Bukit Selong, jalan-jalan di Taman Surga, petik stroberi segar, dan nikmati jalur indah Pusuk Sembalun.',
     description_en: 'Venture into the highlands of North Lombok — explore Monkey Forest, visit the ancient Bayan Mosque, soak in breathtaking views from Bukit Selong, wander through Taman Surga, pick fresh strawberries, and enjoy the scenic Pusuk Sembalun pass.',
     itinerary: [
@@ -236,7 +239,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-005', slug: 'tour-sekotong-barat', name: 'Tour Sekotong Barat', category: 'daily_tour',
     price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/36956255/pexels-photo-36956255.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Gili Nanggu.jpg',
     gallery: [], description: 'Jelajahi pulau-pulau barat daya Lombok yang masih perawan — snorkeling di air jernih Gili Nanggu, bersantai di surga kecil Gili Kedis, dan telusuri keindahan alami Gili Sudak.',
     description_en: 'Island-hop across the pristine southwest islands of Lombok — snorkel in crystal-clear waters at Gili Nanggu, relax on the tiny paradise of Gili Kedis, and explore the untouched beauty of Gili Sudak.',
     itinerary: [
@@ -258,7 +261,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-006', slug: 'tour-air-terjun-1', name: 'Tour Air Terjun I', category: 'daily_tour',
     price: 800000, price_usd: 50, duration: '6-8 jam', meeting_time: '08:00', finish_time: '15:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/4253929/pexels-photo-4253929.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Air Terjun Benang Stokel.jpg',
     gallery: [], description: 'Telusuri hutan tropis yang rimbun untuk menemukan dua air terjun terindah Lombok — Benang Stokel yang megah bertingkat dan Benang Kelambu yang eksotis bak tirai.',
     description_en: 'Journey through lush tropical forests to discover two of Lombok\'s most breathtaking waterfalls — the majestic multi-tiered Benang Stokel and the ethereal curtain-like Benang Kelambu.',
     itinerary: [
@@ -278,7 +281,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-007', slug: 'tour-wisata-lotim', name: 'Tour Wisata Lotim', category: 'daily_tour',
     price: 900000, price_usd: 56, duration: '8-10 jam', meeting_time: '07:00', finish_time: '17:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/16008637/pexels-photo-16008637.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Gili Kondo.jpg',
     gallery: [], description: 'Temukan surga tersembunyi Lombok Timur — kunjungi Gili Kondo yang menakjubkan dengan terumbu karang, berjalan di atas gosong pasir ajaib Gili Pasir, dan jelajahi Gili Kapal yang tak berpenghuni.',
     description_en: 'Discover the hidden paradise of East Lombok — visit the stunning Gili Kondo with its pristine coral reefs, walk on the magical sandbar of Gili Pasir, and explore the tiny uninhabited Gili Kapal.',
     itinerary: [
@@ -300,7 +303,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-008', slug: 'tour-air-terjun-2', name: 'Tour Air Terjun II', category: 'daily_tour',
     price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '07:00', finish_time: '16:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/5720833/pexels-photo-5720833.jpeg?auto=compress&cs=tinysrgb&w=800',
+    cover_image: '/destinations/Air Terjun Sendang Gile.jpg',
     gallery: [], description: 'Trekking ke air terjun kembar legendaris di kaki Gunung Rinjani — Air Terjun Sendang Gile setinggi 31 meter dan Tiu Kelep yang spektakuler bertingkat, dikelilingi hutan hujan tropis.',
     description_en: 'Trek to the legendary twin waterfalls at the foot of Mount Rinjani — the thundering 31-meter Sendang Gile waterfall and the spectacular multi-tiered Tiu Kelep, surrounded by lush tropical rainforest.',
     itinerary: [
@@ -321,14 +324,14 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-009', slug: 'tour-pantai-lotim', name: 'Tour Pantai Lombok Timur', category: 'daily_tour',
     price: 900000, price_usd: 56, duration: '10-12 jam', meeting_time: '07:00', finish_time: '18:00', max_passenger: 4,
-    cover_image: 'https://images.pexels.com/photos/2499777/pexels-photo-2499777.jpeg?auto=compress&cs=tinysrgb&w=800',
-    gallery: [], description: 'Jelajahi pesisir timur Lombok yang eksotis — kunjungi Pantai Pink yang terkenal dengan pasir berwarna merah muda, satu dari tujuh di dunia, lalu temukan keindahan liar Pantai Kura-Kura.',
-    description_en: 'Explore the exotic eastern coast of Lombok — visit the famous Pink Beach with its unique pink-colored sand, one of only seven in the world, then discover the wild beauty of Turtle Beach.',
+    cover_image: '/destinations/Pantai Pink.jpg',
+    gallery: [], description: 'Jelajahi pesisir timur Lombok yang eksotis — kunjungi Pantai Pink yang terkenal dengan pasir berwarna merah muda, temukan keindahan liar Pantai Kura-Kura, dan nikmati teluk tersembunyi Ekas.',
+    description_en: 'Explore the exotic eastern coast of Lombok — visit the famous Pink Beach with its unique pink-colored sand, discover the wild beauty of Turtle Beach, and enjoy the hidden bay of Ekas.',
     itinerary: [
       { time: '07:00', activity: 'Jemput di Hotel' },
       { time: '10:00', activity: 'Pantai Pink' },
-      { time: '12:30', activity: 'Makan Siang' },
-      { time: '14:00', activity: 'Pantai Kura-Kura' },
+      { time: '12:00', activity: 'Pantai Kura-Kura & Makan Siang' },
+      { time: '14:00', activity: 'Pantai Ekas' },
       { time: '15:30', activity: 'Perjalanan pulang' },
       { time: '18:00', activity: 'Kembali ke Hotel' },
     ],
@@ -336,8 +339,30 @@ export const tourPackages: TourPackage[] = [
     excludes: ['Tiket Masuk', 'Sewa Boat (jika perlu)', 'Makan Siang'],
     additional_info: 'Perjalanan cukup jauh (~3 jam dari Senggigi). Berangkat pagi.', cancellation_policy: 'Gratis pembatalan hingga 24 jam sebelum tour.',
     status: 'active', is_featured: false, is_popular: true, display_order: 9,
-    seo_title: 'Tour Pantai Pink Lombok Timur', seo_description: 'Tour Pantai Pink dan Kura-Kura di Lombok Timur.', seo_keywords: ['pantai pink', 'pink beach', 'lombok timur'],
-    destinations: destinations.filter(d => ['dest-027','dest-028'].includes(d.id)),
+    seo_title: 'Tour Pantai Pink Lombok Timur', seo_description: 'Tour Pantai Pink, Kura-Kura, dan Ekas di Lombok Timur.', seo_keywords: ['pantai pink', 'pink beach', 'ekas', 'lombok timur'],
+    destinations: destinations.filter(d => ['dest-027','dest-028','dest-031'].includes(d.id)),
+  },
+  {
+    id: 'tour-010', slug: 'tour-tete-batu', name: 'Tour Tete Batu', category: 'daily_tour',
+    price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
+    cover_image: '/destinations/tete batu.jpg',
+    gallery: [], description: 'Nikmati keindahan desa wisata Tete Batu di lereng Gunung Rinjani — sawah terasering hijau, udara sejuk pegunungan, air terjun tersembunyi, dan kehidupan pedesaan Sasak yang autentik.',
+    description_en: 'Enjoy the beauty of Tete Batu village on the slopes of Mount Rinjani — lush green rice terraces, cool mountain air, hidden waterfalls, and authentic Sasak rural life.',
+    itinerary: [
+      { time: '08:00', activity: 'Jemput di Hotel' },
+      { time: '10:00', activity: 'Tete Batu — Jalan-jalan sawah' },
+      { time: '11:30', activity: 'Air Terjun Jeruk Manis' },
+      { time: '13:00', activity: 'Makan Siang di Warung Lokal' },
+      { time: '14:30', activity: 'Taman Wisata Tete Batu' },
+      { time: '16:00', activity: 'Perjalanan pulang' },
+      { time: '17:00', activity: 'Kembali ke Hotel' },
+    ],
+    includes: ['Sopir Profesional', 'BBM', 'Air Mineral', 'Parkir'],
+    excludes: ['Tiket Masuk', 'Makan Siang', 'Pengeluaran Pribadi'],
+    additional_info: 'Udara sejuk di Tete Batu, bawa jaket tipis.', cancellation_policy: 'Gratis pembatalan hingga 24 jam sebelum tour.',
+    status: 'active', is_featured: true, is_popular: false, display_order: 10,
+    seo_title: 'Tour Tete Batu Lombok', seo_description: 'Tour desa wisata Tete Batu di lereng Rinjani.', seo_keywords: ['tete batu', 'desa wisata', 'rinjani'],
+    destinations: destinations.filter(d => ['dest-030'].includes(d.id)),
   },
 ];
 

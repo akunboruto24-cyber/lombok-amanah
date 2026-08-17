@@ -1,6 +1,15 @@
+import fs from 'fs';
+import path from 'path';
 import { getTourPackages, getDestinations, getVehicles, getReviews, getSettings } from '@/lib/data';
 import { HomeContent } from '@/components/home/HomeContent';
 import { TransportBooking } from '@/components/home/TransportBooking';
+import { GallerySection } from '@/components/home/GallerySection';
+
+function getGalleryPhotos(): string[] {
+  const dir = path.join(process.cwd(), 'public', 'gallery');
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f)).sort();
+}
 
 export default async function HomePage() {
   const [tours, destinations, vehicles, reviews, settings] = await Promise.all([
@@ -11,6 +20,8 @@ export default async function HomePage() {
     getSettings(),
   ]);
 
+  const galleryPhotos = getGalleryPhotos();
+
   return (
     <>
       <HomeContent
@@ -20,6 +31,7 @@ export default async function HomePage() {
         reviews={reviews}
         settings={settings}
       />
+      <GallerySection photos={galleryPhotos} />
       <TransportBooking whatsapp={settings.whatsapp} />
     </>
   );
