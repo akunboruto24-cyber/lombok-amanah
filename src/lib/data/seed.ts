@@ -57,13 +57,13 @@ export const destinations: Destination[] = [
     id: 'dest-012', slug: 'taman-narmada', name: 'Taman Narmada', description: 'Istana air peninggalan kerajaan Karangasem dengan kolam dan taman yang indah.', category: 'culture', location: 'Narmada, Lombok Barat', latitude: -8.5816, longitude: 116.2121, opening_hours: '08:00 - 17:00', entrance_fee: 'Rp 10.000', cover_image: '/destinations/Taman Narmada.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 12,
   },
   {
-    id: 'dest-013', slug: 'masjid-bayan-kuno', name: 'Masjid Bayan Kuno', description: 'Masjid tertua di Lombok yang dibangun abad ke-16, terbuat dari bambu dan alang-alang.', category: 'culture', location: 'Bayan, Lombok Utara', latitude: -8.3550, longitude: 116.3820, opening_hours: '08:00 - 17:00', entrance_fee: 'Donasi', cover_image: null, gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 13,
+    id: 'dest-013', slug: 'masjid-bayan-kuno', name: 'Masjid Bayan Kuno', description: 'Masjid tertua di Lombok yang dibangun abad ke-16, terbuat dari bambu dan alang-alang.', category: 'culture', location: 'Bayan, Lombok Utara', latitude: -8.3550, longitude: 116.3820, opening_hours: '08:00 - 17:00', entrance_fee: 'Donasi', cover_image: '/destinations/Masjid Bayan Kuno.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 13,
   },
   {
     id: 'dest-014', slug: 'bukit-selong', name: 'Bukit Selong', description: 'Bukit dengan pemandangan sawah terasering yang ikonik di Sembalun. Salah satu viewpoint terbaik di Lombok.', category: 'mountain', location: 'Sembalun, Lombok Timur', latitude: -8.4645, longitude: 116.4900, opening_hours: '06:00 - 18:00', entrance_fee: 'Rp 10.000', cover_image: null, gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 14,
   },
   {
-    id: 'dest-015', slug: 'taman-surga', name: 'Taman Surga', description: 'Taman bunga dan kebun stroberi di kawasan Sembalun dengan udara sejuk pegunungan.', category: 'mountain', location: 'Sembalun', latitude: -8.4700, longitude: 116.4950, opening_hours: '08:00 - 17:00', entrance_fee: 'Rp 15.000', cover_image: null, gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 15,
+    id: 'dest-015', slug: 'taman-surga', name: 'Taman Surga', description: 'Taman bunga dan kebun stroberi di kawasan Sembalun dengan udara sejuk pegunungan.', category: 'mountain', location: 'Sembalun', latitude: -8.4700, longitude: 116.4950, opening_hours: '08:00 - 17:00', entrance_fee: 'Rp 15.000', cover_image: '/destinations/Taman Surga Sembalun.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 15,
   },
   {
     id: 'dest-016', slug: 'pusuk-sembalun', name: 'Pusuk Sembalun', description: 'Jalan berkelok di pegunungan dengan pemandangan lembah hijau dan kabut. Sering dijumpai monyet liar.', category: 'mountain', location: 'Sembalun', latitude: -8.4500, longitude: 116.4200, opening_hours: '24 Jam', entrance_fee: 'Gratis', cover_image: '/destinations/Pusuk Sembalun.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 16,
@@ -344,7 +344,7 @@ export const tourPackages: TourPackage[] = [
   },
   {
     id: 'tour-010', slug: 'tour-tete-batu', name: 'Tour Tete Batu', category: 'daily_tour',
-    price: 800000, price_usd: 50, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
+    price: 2000000, price_usd: 125, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
     cover_image: '/destinations/tete batu.jpg',
     gallery: [], description: 'Nikmati keindahan desa wisata Tete Batu di lereng Gunung Rinjani — sawah terasering hijau, udara sejuk pegunungan, air terjun tersembunyi, dan kehidupan pedesaan Sasak yang autentik.',
     description_en: 'Enjoy the beauty of Tete Batu village on the slopes of Mount Rinjani — lush green rice terraces, cool mountain air, hidden waterfalls, and authentic Sasak rural life.',
