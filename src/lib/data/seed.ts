@@ -60,7 +60,7 @@ export const destinations: Destination[] = [
     id: 'dest-013', slug: 'masjid-bayan-kuno', name: 'Masjid Bayan Kuno', description: 'Masjid tertua di Lombok yang dibangun abad ke-16, terbuat dari bambu dan alang-alang.', category: 'culture', location: 'Bayan, Lombok Utara', latitude: -8.3550, longitude: 116.3820, opening_hours: '08:00 - 17:00', entrance_fee: 'Donasi', cover_image: '/destinations/Masjid Bayan Kuno.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 13,
   },
   {
-    id: 'dest-014', slug: 'bukit-selong', name: 'Bukit Selong', description: 'Bukit dengan pemandangan sawah terasering yang ikonik di Sembalun. Salah satu viewpoint terbaik di Lombok.', category: 'mountain', location: 'Sembalun, Lombok Timur', latitude: -8.4645, longitude: 116.4900, opening_hours: '06:00 - 18:00', entrance_fee: 'Rp 10.000', cover_image: null, gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 14,
+    id: 'dest-014', slug: 'bukit-selong', name: 'Bukit Selong', description: 'Bukit dengan pemandangan sawah terasering yang ikonik di Sembalun. Salah satu viewpoint terbaik di Lombok.', category: 'mountain', location: 'Sembalun, Lombok Timur', latitude: -8.4645, longitude: 116.4900, opening_hours: '06:00 - 18:00', entrance_fee: 'Rp 10.000', cover_image: '/destinations/Bukit Selong Sembalun.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 14,
   },
   {
     id: 'dest-015', slug: 'taman-surga', name: 'Taman Surga', description: 'Taman bunga dan kebun stroberi di kawasan Sembalun dengan udara sejuk pegunungan.', category: 'mountain', location: 'Sembalun', latitude: -8.4700, longitude: 116.4950, opening_hours: '08:00 - 17:00', entrance_fee: 'Rp 15.000', cover_image: '/destinations/Taman Surga Sembalun.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 15,
@@ -343,7 +343,7 @@ export const tourPackages: TourPackage[] = [
     destinations: destinations.filter(d => ['dest-027','dest-028','dest-031'].includes(d.id)),
   },
   {
-    id: 'tour-010', slug: 'tour-tete-batu', name: 'Tour Tete Batu', category: 'daily_tour',
+    id: 'tour-010', slug: 'tour-tete-batu', name: 'Paket Explore Tete Batu', category: 'daily_tour',
     price: 2000000, price_usd: 125, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
     cover_image: '/destinations/tete batu.jpg',
     gallery: [], description: 'Nikmati keindahan desa wisata Tete Batu di lereng Gunung Rinjani — sawah terasering hijau, udara sejuk pegunungan, air terjun tersembunyi, dan kehidupan pedesaan Sasak yang autentik.',
@@ -361,7 +361,7 @@ export const tourPackages: TourPackage[] = [
     excludes: ['Tiket Masuk', 'Makan Siang', 'Pengeluaran Pribadi'],
     additional_info: 'Udara sejuk di Tete Batu, bawa jaket tipis.', cancellation_policy: 'Gratis pembatalan hingga 24 jam sebelum tour.',
     status: 'active', is_featured: true, is_popular: false, display_order: 10,
-    seo_title: 'Tour Tete Batu Lombok', seo_description: 'Tour desa wisata Tete Batu di lereng Rinjani.', seo_keywords: ['tete batu', 'desa wisata', 'rinjani'],
+    seo_title: 'Paket Explore Tete Batu Lombok', seo_description: 'Tour desa wisata Tete Batu di lereng Rinjani.', seo_keywords: ['tete batu', 'desa wisata', 'rinjani'],
     destinations: destinations.filter(d => ['dest-030'].includes(d.id)),
   },
 ];
