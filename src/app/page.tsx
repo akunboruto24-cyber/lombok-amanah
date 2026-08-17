@@ -3,7 +3,6 @@ import path from 'path';
 import { getTourPackages, getDestinations, getVehicles, getReviews, getSettings } from '@/lib/data';
 import { HomeContent } from '@/components/home/HomeContent';
 import { TransportBooking } from '@/components/home/TransportBooking';
-import { GallerySection } from '@/components/home/GallerySection';
 
 function getGalleryPhotos(): string[] {
   const dir = path.join(process.cwd(), 'public', 'gallery');
@@ -30,8 +29,8 @@ export default async function HomePage() {
         vehicles={vehicles}
         reviews={reviews}
         settings={settings}
+        galleryPhotos={galleryPhotos}
       />
-      <GallerySection photos={galleryPhotos} />
       <TransportBooking whatsapp={settings.whatsapp} />
     </>
   );

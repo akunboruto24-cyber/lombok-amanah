@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight, Star, Shield, Clock, Users, MapPin, Phone, Luggage, UserCheck, Wind } from 'lucide-react';
 import { T } from '@/lib/language';
 import { TourCard } from '@/components/tours/TourCard';
+import { GallerySection } from '@/components/home/GallerySection';
 import type { TourPackage, Destination, Vehicle, Review, SiteSettings } from '@/types/database';
 
 interface Props {
@@ -13,9 +14,10 @@ interface Props {
   vehicles: Vehicle[];
   reviews: Review[];
   settings: SiteSettings;
+  galleryPhotos: string[];
 }
 
-export function HomeContent({ tours, destinations, vehicles, reviews, settings }: Props) {
+export function HomeContent({ tours, destinations, vehicles, reviews, settings, galleryPhotos }: Props) {
   const featuredTours = tours.filter(t => t.is_featured || t.is_popular).slice(0, 6);
 
   return (
@@ -235,6 +237,9 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings }
           </div>
         </div>
       </section>
+
+      {/* ===== GALLERY ===== */}
+      <GallerySection photos={galleryPhotos} />
 
       {/* ===== REVIEWS ===== */}
       <section className="py-20 sm:py-28 bg-slate-50">
