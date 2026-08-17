@@ -111,7 +111,7 @@ export const destinations: Destination[] = [
     id: 'dest-030', slug: 'tete-batu', name: 'Tete Batu', description: 'Desa wisata di lereng Rinjani dengan pemandangan sawah terasering, air terjun, dan suasana pedesaan yang asri.', category: 'mountain', location: 'Lombok Timur', latitude: -8.5300, longitude: 116.4200, opening_hours: '24 Jam', entrance_fee: 'Gratis', cover_image: '/destinations/tete batu.jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 30,
   },
   {
-    id: 'dest-031', slug: 'ekas', name: 'Pantai Ekas', description: 'Teluk tersembunyi di selatan Lombok Timur dengan ombak surfing kelas dunia dan pemandangan tebing dramatis.', category: 'beach', location: 'Lombok Timur', latitude: -8.8600, longitude: 116.5200, opening_hours: '24 Jam', entrance_fee: 'Gratis', cover_image: null, gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 31,
+    id: 'dest-031', slug: 'ekas', name: 'Pantai Ekas', description: 'Teluk tersembunyi di selatan Lombok Timur dengan ombak surfing kelas dunia dan pemandangan tebing dramatis.', category: 'beach', location: 'Lombok Timur', latitude: -8.8600, longitude: 116.5200, opening_hours: '24 Jam', entrance_fee: 'Gratis', cover_image: '/destinations/Pantai Ekas .jpg', gallery: [], seo_title: null, seo_description: null, is_active: true, display_order: 31,
   },
 ];
 
