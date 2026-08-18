@@ -133,6 +133,12 @@ function getReviewCount(tourId: string): number {
 }
 
 // -- FORMAT HELPERS --
+const IDR_TO_USD_RATE = 16000;
+
+export function idrToUsd(idr: number): number {
+  return Math.round(idr / IDR_TO_USD_RATE);
+}
+
 export function formatPrice(price: number, currency = 'IDR'): string {
   if (currency === 'USD') return `$${price}`;
   return `Rp ${price.toLocaleString('id-ID')}`;

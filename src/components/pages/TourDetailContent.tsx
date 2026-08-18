@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Clock, Users, MapPin, Star, Check, X as XIcon, ArrowLeft, Car, Calendar } from 'lucide-react';
 import { T, useLanguage } from '@/lib/language';
-import { formatPrice } from '@/lib/data';
+import { formatPrice, idrToUsd } from '@/lib/data';
 import { BookingForm } from '@/components/booking/BookingForm';
 import type { TourPackage, SiteSettings } from '@/types/database';
 
@@ -33,7 +33,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                   <span className="text-white/40 text-[13px]">({tour.review_count} {t('review', 'reviews')})</span>
                 </div>
               )}
-              <span className="text-2xl font-bold text-gold-400">{lang === 'en' && tour.price_usd ? formatPrice(tour.price_usd, 'USD') : formatPrice(tour.price)}<span className="text-[14px] text-white/40 font-normal">/{t('grup', 'group')}</span></span>
+              <span className="text-2xl font-bold text-gold-400">{lang === 'en' ? formatPrice(idrToUsd(tour.price), 'USD') : formatPrice(tour.price)}<span className="text-[14px] text-white/40 font-normal">/{t('grup', 'group')}</span></span>
             </div>
           </div>
         </div>

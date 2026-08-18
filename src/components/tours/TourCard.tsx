@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Clock, MapPin, Users, Star } from 'lucide-react';
-import { formatPrice } from '@/lib/data';
+import { formatPrice, idrToUsd } from '@/lib/data';
 import { T, useLanguage } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
 
@@ -35,7 +35,7 @@ export function TourCard({ tour }: { tour: TourPackage }) {
             </div>
           )}
           <div className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-navy-900 text-[14px] font-bold rounded-lg">
-            {lang === 'en' && tour.price_usd ? formatPrice(tour.price_usd, 'USD') : formatPrice(tour.price)}
+            {lang === 'en' ? formatPrice(idrToUsd(tour.price), 'USD') : formatPrice(tour.price)}
           </div>
         </div>
       </Link>

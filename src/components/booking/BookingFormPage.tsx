@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { TourPackage, Vehicle } from '@/types/database';
-import { formatPrice } from '@/lib/data';
+import { formatPrice, idrToUsd } from '@/lib/data';
 import { T, useLanguage } from '@/lib/language';
 import {
   User, Phone, Mail, MapPin, Calendar, Clock,
@@ -134,7 +134,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
                   <option value="" className="bg-[#1E293B]">{t('— Pilih paket tour —', '— Select tour package —')}</option>
                   {tours.map(tr => (
                     <option key={tr.id} value={tr.name} className="bg-[#1E293B]">
-                      {lang === 'en' ? tr.name_en || tr.name : tr.name} — {lang === 'en' && tr.price_usd ? formatPrice(tr.price_usd, 'USD') : formatPrice(tr.price)}
+                      {lang === 'en' ? tr.name_en || tr.name : tr.name} — {lang === 'en' ? formatPrice(idrToUsd(tr.price), 'USD') : formatPrice(tr.price)}
                     </option>
                   ))}
                   <option value="Custom Tour" className="bg-[#1E293B]">{t('Custom Tour (pilih sendiri)', 'Custom Tour (your choice)')}</option>

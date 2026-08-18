@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Calendar, Users, MapPin, Phone, MessageCircle } from 'lucide-react';
-import { formatPrice, formatWhatsAppLink } from '@/lib/data';
+import { formatPrice, formatWhatsAppLink, idrToUsd } from '@/lib/data';
 import { T, useLanguage } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
 
@@ -42,7 +42,7 @@ I'd like to book a tour:
 
 📦 *Package:* ${tour.name}
 📍 *Route:* ${destNames}
-💰 *Price:* ${tour.price_usd ? formatPrice(tour.price_usd, 'USD') : formatPrice(tour.price)}/group
+💰 *Price:* ${formatPrice(idrToUsd(tour.price), 'USD')}/group
 📅 *Date:* ${dateStr}
 👥 *Guests:* ${pax} ${pplLabel}
 📍 *Pickup:* ${pickup || '-'}
@@ -77,7 +77,7 @@ Mohon konfirmasi ketersediaan. Terima kasih!`;
       {/* Price Header */}
       <div className="bg-navy-900 px-6 py-5 text-center">
         <p className="text-[12px] text-white/40 uppercase tracking-wider mb-1"><T en="Starting from">Mulai dari</T></p>
-        <p className="text-3xl font-bold text-gold-400">{lang === 'en' && tour.price_usd ? formatPrice(tour.price_usd, 'USD') : formatPrice(tour.price)}</p>
+        <p className="text-3xl font-bold text-gold-400">{lang === 'en' ? formatPrice(idrToUsd(tour.price), 'USD') : formatPrice(tour.price)}</p>
         <p className="text-[13px] text-white/40"><T en={`per group (max ${tour.max_passenger} people)`}>{`per grup (max ${tour.max_passenger} orang)`}</T></p>
       </div>
 
