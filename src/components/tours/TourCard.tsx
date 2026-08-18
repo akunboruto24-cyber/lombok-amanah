@@ -35,7 +35,7 @@ export function TourCard({ tour }: { tour: TourPackage }) {
             </div>
           )}
           <div className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-navy-900 text-[14px] font-bold rounded-lg">
-            {formatPrice(tour.price)}
+            {lang === 'en' && tour.price_usd ? formatPrice(tour.price_usd, 'USD') : formatPrice(tour.price)}
           </div>
         </div>
       </Link>

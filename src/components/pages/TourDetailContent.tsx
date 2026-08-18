@@ -33,7 +33,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                   <span className="text-white/40 text-[13px]">({tour.review_count} {t('review', 'reviews')})</span>
                 </div>
               )}
-              <span className="text-2xl font-bold text-gold-400">{formatPrice(tour.price)}<span className="text-[14px] text-white/40 font-normal">/{t('grup', 'group')}</span></span>
+              <span className="text-2xl font-bold text-gold-400">{lang === 'en' && tour.price_usd ? formatPrice(tour.price_usd, 'USD') : formatPrice(tour.price)}<span className="text-[14px] text-white/40 font-normal">/{t('grup', 'group')}</span></span>
             </div>
           </div>
         </div>
