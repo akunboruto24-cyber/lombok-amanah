@@ -475,7 +475,7 @@ export const tourPackages: TourPackage[] = [
   },
   {
     id: 'tour-010', slug: 'tour-tete-batu', name: 'Paket Explore Tete Batu', name_en: 'Explore Tete Batu Package', category: 'daily_tour',
-    price: 2050000, price_usd: null, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
+    price: 2000000, price_usd: null, duration: '8-10 jam', meeting_time: '08:00', finish_time: '17:00', max_passenger: 4,
     cover_image: '/destinations/tete batu.jpg',
     gallery: [], description: 'Nikmati keindahan desa wisata Tete Batu di lereng Gunung Rinjani — sawah terasering hijau, udara sejuk pegunungan, air terjun tersembunyi, dan kehidupan pedesaan Sasak yang autentik.',
     description_en: 'Enjoy the beauty of Tete Batu village on the slopes of Mount Rinjani — lush green rice terraces, cool mountain air, hidden waterfalls, and authentic Sasak rural life.',
