@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight, Star, Shield, Clock, Users, MapPin, Phone, Luggage, UserCheck, Wind } from 'lucide-react';
 import { T, useLanguage } from '@/lib/language';
 import { TourCard } from '@/components/tours/TourCard';
+import { TransportBooking } from '@/components/home/TransportBooking';
 import { GallerySection } from '@/components/home/GallerySection';
 import type { TourPackage, Destination, Vehicle, Review, SiteSettings } from '@/types/database';
 
@@ -94,7 +95,7 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings, 
         </div>
       </section>
 
-      {/* ===== FEATURED TOURS ===== */}
+      {/* ===== 1. FEATURED TOURS ===== */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="text-center mb-14">
@@ -131,64 +132,7 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings, 
         </div>
       </section>
 
-      {/* ===== VEHICLES ===== */}
-      <section className="py-20 sm:py-28 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="w-10 h-[1px] bg-gold-400" />
-              <span className="text-gold-400 text-[11px] font-semibold tracking-[0.25em] uppercase"><T en="Fleet">Armada</T></span>
-              <div className="w-10 h-[1px] bg-gold-400" />
-            </div>
-            <h2 className="text-3xl sm:text-[44px] font-display font-bold text-navy-900 leading-[1.15] mb-5">
-              <T en="Our Vehicles">Kendaraan Kami</T>
-            </h2>
-            <p className="text-navy-900/50 max-w-2xl mx-auto text-[16px] font-light leading-[1.7]">
-              <T en="All vehicles are well-maintained with experienced, friendly drivers who know every route in Lombok. Your safety and comfort are our top priority.">
-                Semua kendaraan terawat prima dengan sopir berpengalaman yang ramah dan menguasai setiap rute di Lombok. Keselamatan dan kenyamanan Anda adalah prioritas utama kami.
-              </T>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {vehicles.map((v) => (
-              <article key={v.id} className="bg-white rounded-2xl overflow-hidden border border-navy-900/[0.04] hover:shadow-xl transition-all duration-500">
-                <div className="relative h-52 overflow-hidden bg-slate-100">
-                  {v.photo && (
-                    <Image src={v.photo} alt={v.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                  )}
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 bg-navy-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase rounded-full">
-                    {v.name}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-[14px] text-navy-900/50 leading-[1.6] mb-5">{v.description}</p>
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-navy-900/[0.06]">
-                    <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-gold-400" />
-                      <span className="text-[13px] text-navy-900/70">{v.seat_capacity} <T en="Passengers">Penumpang</T></span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Luggage className="w-4 h-4 text-gold-400" />
-                      <span className="text-[13px] text-navy-900/70">{v.luggage_capacity} <T en="Luggage">Bagasi</T></span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <UserCheck className="w-4 h-4 text-gold-400" />
-                      <span className="text-[13px] text-navy-900/70"><T en="Pro Driver">Sopir Pro</T></span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Wind className="w-4 h-4 text-gold-400" />
-                      <span className="text-[13px] text-navy-900/70"><T en="Cool AC">AC Dingin</T></span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== DESTINATIONS ===== */}
+      {/* ===== 2. DESTINATIONS ===== */}
       <section className="py-20 sm:py-28 bg-slate-50">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="text-center mb-14">
@@ -239,7 +183,67 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings, 
         </div>
       </section>
 
-      {/* ===== GALLERY ===== */}
+      {/* ===== 3. VEHICLES ===== */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-10 h-[1px] bg-gold-400" />
+              <span className="text-gold-400 text-[11px] font-semibold tracking-[0.25em] uppercase"><T en="Fleet">Armada</T></span>
+              <div className="w-10 h-[1px] bg-gold-400" />
+            </div>
+            <h2 className="text-3xl sm:text-[44px] font-display font-bold text-navy-900 leading-[1.15] mb-5">
+              <T en="Our Vehicles">Kendaraan Kami</T>
+            </h2>
+            <p className="text-navy-900/50 max-w-2xl mx-auto text-[16px] font-light leading-[1.7]">
+              <T en="All vehicles are well-maintained with experienced, friendly drivers who know every route in Lombok. Your safety and comfort are our top priority.">
+                Semua kendaraan terawat prima dengan sopir berpengalaman yang ramah dan menguasai setiap rute di Lombok. Keselamatan dan kenyamanan Anda adalah prioritas utama kami.
+              </T>
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {vehicles.map((v) => (
+              <article key={v.id} className="bg-white rounded-2xl overflow-hidden border border-navy-900/[0.04] hover:shadow-xl transition-all duration-500">
+                <div className="relative h-52 overflow-hidden bg-slate-100">
+                  {v.photo && (
+                    <Image src={v.photo} alt={v.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+                  )}
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 bg-navy-900 text-white text-[10px] font-bold tracking-[0.15em] uppercase rounded-full">
+                    {v.name}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <p className="text-[14px] text-navy-900/50 leading-[1.6] mb-5">{lang === 'en' ? v.description_en || v.description : v.description}</p>
+                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-navy-900/[0.06]">
+                    <div className="flex items-center gap-2">
+                      <Users className="w-4 h-4 text-gold-400" />
+                      <span className="text-[13px] text-navy-900/70">{v.seat_capacity} <T en="Passengers">Penumpang</T></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Luggage className="w-4 h-4 text-gold-400" />
+                      <span className="text-[13px] text-navy-900/70">{v.luggage_capacity} <T en="Luggage">Bagasi</T></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <UserCheck className="w-4 h-4 text-gold-400" />
+                      <span className="text-[13px] text-navy-900/70"><T en="Pro Driver">Sopir Pro</T></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Wind className="w-4 h-4 text-gold-400" />
+                      <span className="text-[13px] text-navy-900/70"><T en="Cool AC">AC Dingin</T></span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 4. TRANSPORT BOOKING ===== */}
+      <TransportBooking whatsapp={settings.whatsapp} />
+
+      {/* ===== 5. GALLERY ===== */}
       <GallerySection photos={galleryPhotos} />
 
       {/* ===== REVIEWS ===== */}

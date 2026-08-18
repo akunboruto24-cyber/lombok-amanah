@@ -29,11 +29,11 @@ export function FAQContent({ faqs, settings }: { faqs: FAQ[]; settings: SiteSett
           {faqs.map((faq) => (
             <details key={faq.id} className="group bg-slate-50 rounded-2xl border border-navy-900/[0.04] overflow-hidden">
               <summary className="flex items-center justify-between px-6 py-5 cursor-pointer text-[15px] font-semibold text-navy-900 hover:text-gold-400 transition-colors list-none">
-                {faq.question}
+                {lang === 'en' ? faq.question_en : faq.question}
                 <span className="text-gold-400 text-xl font-light ml-4 group-open:rotate-45 transition-transform">+</span>
               </summary>
               <div className="px-6 pb-5">
-                <p className="text-[14px] text-navy-900/50 leading-[1.8]">{faq.answer}</p>
+                <p className="text-[14px] text-navy-900/50 leading-[1.8]">{lang === 'en' ? faq.answer_en : faq.answer}</p>
               </div>
             </details>
           ))}

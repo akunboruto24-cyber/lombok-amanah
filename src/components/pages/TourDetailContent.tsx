@@ -9,7 +9,7 @@ import { BookingForm } from '@/components/booking/BookingForm';
 import type { TourPackage, SiteSettings } from '@/types/database';
 
 export function TourDetailContent({ tour, settings }: { tour: TourPackage; settings: SiteSettings }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div className="pt-20">
@@ -29,7 +29,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               {tour.review_count && tour.review_count > 0 && (
                 <div className="flex items-center gap-1.5">
                   <Star className="w-4 h-4 fill-gold-400 text-gold-400" />
-                  <span className="text-white font-semibold text-[14px]">{tour.average_rating}</span>
+                  <span className="text-white font-semibold text-[14px]">{tour.average_rating?.toFixed(1)}</span>
                   <span className="text-white/40 text-[13px]">({tour.review_count} {t('review', 'reviews')})</span>
                 </div>
               )}
@@ -44,7 +44,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
           <div className="lg:col-span-2 space-y-10">
             <section>
               <h2 className="text-xl font-display font-bold text-navy-900 mb-4">Overview</h2>
-              <p className="text-[15px] text-navy-900/60 leading-[1.8]">{tour.description}</p>
+              <p className="text-[15px] text-navy-900/60 leading-[1.8]">{lang === 'en' ? tour.description_en || tour.description : tour.description}</p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
                 {tour.duration && (
@@ -112,7 +112,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                         <span className="text-gold-400 text-[12px] font-bold">{item.time}</span>
                       </div>
                       <div className="pb-6 pt-2">
-                        <p className="text-[14px] font-medium text-navy-900">{item.activity}</p>
+                        <p className="text-[14px] font-medium text-navy-900">{lang === 'en' ? item.activity_en || item.activity : item.activity}</p>
                       </div>
                     </div>
                   ))}
@@ -125,7 +125,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                 <section className="p-5 bg-green-50 rounded-xl">
                   <h3 className="text-[14px] font-bold text-green-800 mb-3"><T en="Included">Termasuk</T></h3>
                   <ul className="space-y-2">
-                    {tour.includes.map((item, i) => (
+                    {(lang === 'en' && tour.includes_en?.length ? tour.includes_en : tour.includes).map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-[13px] text-green-700">
                         <Check className="w-4 h-4 flex-shrink-0" /> {item}
                       </li>
@@ -137,7 +137,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                 <section className="p-5 bg-red-50 rounded-xl">
                   <h3 className="text-[14px] font-bold text-red-800 mb-3"><T en="Not Included">Tidak Termasuk</T></h3>
                   <ul className="space-y-2">
-                    {tour.excludes.map((item, i) => (
+                    {(lang === 'en' && tour.excludes_en?.length ? tour.excludes_en : tour.excludes).map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-[13px] text-red-700">
                         <XIcon className="w-4 h-4 flex-shrink-0" /> {item}
                       </li>
@@ -150,7 +150,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
             {tour.additional_info && (
               <section className="p-5 bg-blue-50 rounded-xl">
                 <h3 className="text-[14px] font-bold text-blue-800 mb-2"><T en="Additional Information">Informasi Tambahan</T></h3>
-                <p className="text-[13px] text-blue-700 leading-[1.7]">{tour.additional_info}</p>
+                <p className="text-[13px] text-blue-700 leading-[1.7]">{lang === 'en' ? tour.additional_info_en || tour.additional_info : tour.additional_info}</p>
               </section>
             )}
 

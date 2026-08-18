@@ -11,6 +11,7 @@ export interface Destination {
   slug: string;
   name: string;
   description: string | null;
+  description_en: string | null;
   category: DestinationCategory;
   location: string | null;
   latitude: number | null;
@@ -34,6 +35,7 @@ export interface Vehicle {
   luggage_capacity: number;
   daily_price: number | null;
   description: string | null;
+  description_en: string | null;
   features: string[];
   is_active: boolean;
   display_order: number;
@@ -71,8 +73,11 @@ export interface TourPackage {
   description_en: string | null;
   itinerary: ItineraryItem[] | null;
   includes: string[];
+  includes_en: string[];
   excludes: string[];
+  excludes_en: string[];
   additional_info: string | null;
+  additional_info_en: string | null;
   cancellation_policy: string | null;
   status: TourStatus;
   is_featured: boolean;
@@ -92,6 +97,7 @@ export interface TourPackage {
 export interface ItineraryItem {
   time: string;
   activity: string;
+  activity_en: string;
 }
 
 export interface Customer {
@@ -178,7 +184,9 @@ export interface Promo {
 export interface FAQ {
   id: string;
   question: string;
+  question_en: string;
   answer: string;
+  answer_en: string;
   category: string | null;
   display_order: number;
   is_active: boolean;

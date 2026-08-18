@@ -49,8 +49,8 @@ export function TourCard({ tour }: { tour: TourPackage }) {
         {tour.review_count && tour.review_count > 0 && (
           <div className="flex items-center gap-1.5 mb-3">
             <Star className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
-            <span className="text-[13px] font-semibold text-navy-900">{tour.average_rating}</span>
-            <span className="text-[12px] text-navy-900/40">({tour.review_count} review)</span>
+            <span className="text-[13px] font-semibold text-navy-900">{tour.average_rating?.toFixed(1)}</span>
+            <span className="text-[12px] text-navy-900/40">({tour.review_count} reviews)</span>
           </div>
         )}
 

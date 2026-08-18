@@ -14,7 +14,7 @@ const categoryLabels: Record<string, { id: string; en: string }> = {
 };
 
 export function DestinationsContent({ destinations }: { destinations: Destination[] }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const categories = [...new Set(destinations.map(d => d.category))];
 
   return (
@@ -61,7 +61,7 @@ export function DestinationsContent({ destinations }: { destinations: Destinatio
                     <div className="p-5">
                       <h3 className="text-[15px] font-bold text-navy-900 mb-1">{dest.name}</h3>
                       <p className="text-[11px] text-gold-400 font-medium uppercase tracking-wider mb-3">{dest.location}</p>
-                      <p className="text-[13px] text-navy-900/50 leading-[1.7]">{dest.description}</p>
+                      <p className="text-[13px] text-navy-900/50 leading-[1.7]">{lang === 'en' ? dest.description_en || dest.description : dest.description}</p>
                     </div>
                   </article>
                 ))}
