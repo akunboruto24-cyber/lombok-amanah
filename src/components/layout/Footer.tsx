@@ -66,7 +66,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Phone className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
+                <a href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin bertanya tentang layanan tour & transport.\n\nTerima kasih 🙏')}`} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
                   {settings.phone}
                 </a>
               </li>

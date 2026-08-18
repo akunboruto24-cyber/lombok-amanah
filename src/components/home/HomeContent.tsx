@@ -297,7 +297,7 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings, 
                 </T>
               </p>
               <a
-                href={`https://wa.me/${settings.whatsapp}?text=Halo%20Lombok%20Nusa%20Alam!%20Saya%20ingin%20booking%20tour.`}
+                href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin booking tour di Lombok.\nBisa dibantu info paket yang tersedia?\n\nTerima kasih 🙏')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-10 py-4.5 bg-gold-400 text-navy-900 font-semibold rounded-full hover:bg-gold-300 transition-all hover:shadow-xl hover:shadow-gold-400/20 active:scale-[0.97] text-[15px]"
