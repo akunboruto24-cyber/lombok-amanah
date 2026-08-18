@@ -1,21 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Users, MapPin, Phone, ArrowRight, MessageCircle } from 'lucide-react';
+import { Calendar, Users, MapPin, Phone, MessageCircle } from 'lucide-react';
 import { formatPrice, formatWhatsAppLink } from '@/lib/data';
+import { T, useLanguage } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
 
 const pickupLocations = [
-  'Bandara Internasional Lombok',
-  'Area Senggigi',
-  'Kuta Lombok',
-  'Kota Mataram',
-  'Pelabuhan Bangsal',
-  'Hotel / Villa',
-  'Lokasi Lain',
+  { id: 'Bandara Internasional Lombok', en: 'Lombok International Airport' },
+  { id: 'Area Senggigi', en: 'Senggigi Area' },
+  { id: 'Kuta Lombok', en: 'Kuta Lombok' },
+  { id: 'Kota Mataram', en: 'Mataram City' },
+  { id: 'Pelabuhan Bangsal', en: 'Bangsal Harbor' },
+  { id: 'Hotel / Villa', en: 'Hotel / Villa' },
+  { id: 'Lokasi Lain', en: 'Other Location' },
 ];
 
 export function BookingForm({ tour, whatsapp }: { tour: TourPackage; whatsapp: string }) {
+  const { t, lang } = useLanguage();
   const [date, setDate] = useState('');
   const [pax, setPax] = useState(2);
   const [pickup, setPickup] = useState('');
@@ -28,10 +30,28 @@ export function BookingForm({ tour, whatsapp }: { tour: TourPackage; whatsapp: s
 
   function handleBook() {
     const dateStr = date
-      ? new Date(date).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+      ? new Date(date).toLocaleDateString(lang === 'en' ? 'en-US' : 'id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
       : '-';
 
-    const msg = `Halo Lombok Nusa Alam! 🌴
+    const pplLabel = lang === 'en' ? 'people' : 'orang';
+
+    const msg = lang === 'en'
+      ? `Hello Lombok Nusa Alam! 🌴
+
+I'd like to book a tour:
+
+📦 *Package:* ${tour.name}
+📍 *Route:* ${destNames}
+💰 *Price:* ${formatPrice(tour.price)}/group
+📅 *Date:* ${dateStr}
+👥 *Guests:* ${pax} ${pplLabel}
+📍 *Pickup:* ${pickup || '-'}
+👤 *Name:* ${name || '-'}
+📱 *Phone:* ${phone || '-'}
+📝 *Notes:* ${notes || '-'}
+
+Please confirm availability. Thank you!`
+      : `Halo Lombok Nusa Alam! 🌴
 
 Saya ingin memesan tour:
 
@@ -39,7 +59,7 @@ Saya ingin memesan tour:
 📍 *Rute:* ${destNames}
 💰 *Harga:* ${formatPrice(tour.price)}/grup
 📅 *Tanggal:* ${dateStr}
-👥 *Jumlah:* ${pax} orang
+👥 *Jumlah:* ${pax} ${pplLabel}
 📍 *Jemput:* ${pickup || '-'}
 👤 *Nama:* ${name || '-'}
 📱 *HP:* ${phone || '-'}
@@ -56,32 +76,30 @@ Mohon konfirmasi ketersediaan. Terima kasih!`;
     <div className="bg-white rounded-2xl border border-navy-900/[0.06] shadow-xl shadow-navy-900/[0.04] overflow-hidden">
       {/* Price Header */}
       <div className="bg-navy-900 px-6 py-5 text-center">
-        <p className="text-[12px] text-white/40 uppercase tracking-wider mb-1">Mulai dari</p>
+        <p className="text-[12px] text-white/40 uppercase tracking-wider mb-1"><T en="Starting from">Mulai dari</T></p>
         <p className="text-3xl font-bold text-gold-400">{formatPrice(tour.price)}</p>
-        <p className="text-[13px] text-white/40">per grup (max {tour.max_passenger} orang)</p>
+        <p className="text-[13px] text-white/40"><T en={`per group (max ${tour.max_passenger} people)`}>{`per grup (max ${tour.max_passenger} orang)`}</T></p>
       </div>
 
       {/* Form */}
       <div className="p-6 space-y-4">
-        {/* Name */}
         <div>
           <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-1.5 block">
-            Nama Lengkap *
+            <T en="Full Name *">Nama Lengkap *</T>
           </label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Masukkan nama"
+            placeholder={t('Masukkan nama', 'Enter your name')}
             className="w-full px-4 py-3 text-sm bg-slate-50 rounded-xl border border-navy-900/[0.08] focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 outline-none transition-all"
           />
         </div>
 
-        {/* Phone */}
         <div>
           <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-1.5 block">
             <Phone className="w-3 h-3 inline mr-1 -mt-0.5" />
-            No. WhatsApp
+            <T en="WhatsApp Number">No. WhatsApp</T>
           </label>
           <input
             type="tel"
@@ -92,11 +110,10 @@ Mohon konfirmasi ketersediaan. Terima kasih!`;
           />
         </div>
 
-        {/* Date */}
         <div>
           <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-1.5 block">
             <Calendar className="w-3 h-3 inline mr-1 -mt-0.5" />
-            Tanggal Tour *
+            <T en="Tour Date *">Tanggal Tour *</T>
           </label>
           <input
             type="date"
@@ -107,11 +124,10 @@ Mohon konfirmasi ketersediaan. Terima kasih!`;
           />
         </div>
 
-        {/* Passengers */}
         <div>
           <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-1.5 block">
             <Users className="w-3 h-3 inline mr-1 -mt-0.5" />
-            Jumlah Orang
+            <T en="Number of Guests">Jumlah Orang</T>
           </label>
           <select
             value={pax}
@@ -119,44 +135,41 @@ Mohon konfirmasi ketersediaan. Terima kasih!`;
             className="w-full px-4 py-3 text-sm bg-slate-50 rounded-xl border border-navy-900/[0.08] focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 outline-none transition-all appearance-none cursor-pointer"
           >
             {Array.from({ length: 15 }, (_, i) => i + 1).map((n) => (
-              <option key={n} value={n}>{n} orang</option>
+              <option key={n} value={n}>{n} {t('orang', 'people')}</option>
             ))}
           </select>
         </div>
 
-        {/* Pickup */}
         <div>
           <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-1.5 block">
             <MapPin className="w-3 h-3 inline mr-1 -mt-0.5" />
-            Lokasi Jemput *
+            <T en="Pickup Location *">Lokasi Jemput *</T>
           </label>
           <select
             value={pickup}
             onChange={(e) => setPickup(e.target.value)}
             className="w-full px-4 py-3 text-sm bg-slate-50 rounded-xl border border-navy-900/[0.08] focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 outline-none transition-all appearance-none cursor-pointer"
           >
-            <option value="">— Pilih lokasi —</option>
+            <option value="">{t('— Pilih lokasi —', '— Select location —')}</option>
             {pickupLocations.map((loc) => (
-              <option key={loc} value={loc}>{loc}</option>
+              <option key={loc.id} value={loc.id}>{t(loc.id, loc.en)}</option>
             ))}
           </select>
         </div>
 
-        {/* Notes */}
         <div>
           <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-1.5 block">
-            Catatan (opsional)
+            <T en="Notes (optional)">Catatan (opsional)</T>
           </label>
           <textarea
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             rows={2}
-            placeholder="Permintaan khusus..."
+            placeholder={t('Permintaan khusus...', 'Special requests...')}
             className="w-full px-4 py-3 text-sm bg-slate-50 rounded-xl border border-navy-900/[0.08] focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 outline-none transition-all resize-none"
           />
         </div>
 
-        {/* Submit */}
         <button
           onClick={handleBook}
           disabled={!isValid}
@@ -167,11 +180,13 @@ Mohon konfirmasi ketersediaan. Terima kasih!`;
           }`}
         >
           <MessageCircle className="w-5 h-5" />
-          Pesan via WhatsApp
+          <T en="Book via WhatsApp">Pesan via WhatsApp</T>
         </button>
 
         <p className="text-[11px] text-navy-900/30 text-center leading-[1.6]">
-          Klik tombol di atas untuk langsung chat ke WhatsApp kami. Respons cepat!
+          <T en="Click the button above to chat directly on WhatsApp. Fast response!">
+            Klik tombol di atas untuk langsung chat ke WhatsApp kami. Respons cepat!
+          </T>
         </p>
       </div>
     </div>

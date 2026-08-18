@@ -1,10 +1,11 @@
 'use client';
 
 import { Shield, Users, Clock, Star, Car, MapPin, Phone } from 'lucide-react';
-import { T } from '@/lib/language';
+import { T, useLanguage } from '@/lib/language';
 import type { SiteSettings } from '@/types/database';
 
 export function AboutContent({ settings }: { settings: SiteSettings }) {
+  const { lang } = useLanguage();
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -49,7 +50,7 @@ export function AboutContent({ settings }: { settings: SiteSettings }) {
             <T en="Contact us now to book a tour or ask questions.">Hubungi kami sekarang untuk booking tour atau tanya-tanya.</T>
           </p>
           <a
-            href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya tertarik dengan layanan tour di Lombok.\nBisa info lebih lanjut?\n\nTerima kasih 🙏')}`}
+            href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lang === 'en' ? 'Hello Lombok Nusa Alam Tour & Travel! 🌴\n\nI\'m interested in your tour services in Lombok.\nCould you share more details?\n\nThank you 🙏' : 'Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya tertarik dengan layanan tour di Lombok.\nBisa info lebih lanjut?\n\nTerima kasih 🙏')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gold-400 text-navy-900 font-bold rounded-full hover:bg-gold-300 transition-all text-[15px]"

@@ -1,10 +1,11 @@
 'use client';
 
 import { Phone, Mail, MapPin, Globe, Clock } from 'lucide-react';
-import { T } from '@/lib/language';
+import { T, useLanguage } from '@/lib/language';
 import type { SiteSettings } from '@/types/database';
 
 export function ContactContent({ settings }: { settings: SiteSettings }) {
+  const { lang } = useLanguage();
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -26,7 +27,7 @@ export function ContactContent({ settings }: { settings: SiteSettings }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
           <a
-            href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin bertanya mengenai layanan tour & transport di Lombok.\n\nTerima kasih 🙏')}`}
+            href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lang === 'en' ? 'Hello Lombok Nusa Alam Tour & Travel! 🌴\n\nI\'d like to inquire about your tour & transport services in Lombok.\n\nThank you 🙏' : 'Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin bertanya mengenai layanan tour & transport di Lombok.\n\nTerima kasih 🙏')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-start gap-4 p-6 bg-[#25D366]/5 rounded-2xl border border-[#25D366]/10 hover:border-[#25D366]/30 transition-all"

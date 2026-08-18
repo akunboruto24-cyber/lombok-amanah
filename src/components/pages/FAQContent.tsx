@@ -1,10 +1,11 @@
 'use client';
 
 import { Phone } from 'lucide-react';
-import { T } from '@/lib/language';
+import { T, useLanguage } from '@/lib/language';
 import type { FAQ, SiteSettings } from '@/types/database';
 
 export function FAQContent({ faqs, settings }: { faqs: FAQ[]; settings: SiteSettings }) {
+  const { lang } = useLanguage();
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -41,7 +42,7 @@ export function FAQContent({ faqs, settings }: { faqs: FAQ[]; settings: SiteSett
         <div className="text-center bg-slate-50 rounded-2xl p-8 border border-navy-900/[0.04]">
           <p className="text-[15px] text-navy-900/60 mb-4"><T en="Still have questions?">Masih ada pertanyaan?</T></p>
           <a
-            href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ada pertanyaan mengenai layanan tour & transport di Lombok.\n\nTerima kasih 🙏')}`}
+            href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lang === 'en' ? 'Hello Lombok Nusa Alam Tour & Travel! 🌴\n\nI have a question about your tour & transport services in Lombok.\n\nThank you 🙏' : 'Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ada pertanyaan mengenai layanan tour & transport di Lombok.\n\nTerima kasih 🙏')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gold-400 text-navy-900 font-bold rounded-full hover:bg-gold-300 transition-all text-[14px]"

@@ -8,36 +8,37 @@ import { T, useLanguage } from '@/lib/language';
 interface Location {
   id: string;
   name: string;
+  nameEn: string;
   maps: string;
 }
 
 const pickupLocations: Location[] = [
-  { id: 'airport', name: 'Bandara Internasional Lombok (BIL)', maps: 'https://maps.google.com/?q=-8.7573,116.2695' },
-  { id: 'senggigi', name: 'Area Senggigi', maps: 'https://maps.google.com/?q=-8.4889,116.0442' },
-  { id: 'kuta', name: 'Kuta Lombok / Mandalika', maps: 'https://maps.google.com/?q=-8.8975,116.2918' },
-  { id: 'mataram', name: 'Kota Mataram', maps: 'https://maps.google.com/?q=-8.5833,116.1167' },
-  { id: 'bangsal', name: 'Pelabuhan Bangsal', maps: 'https://maps.google.com/?q=-8.4040,116.0770' },
-  { id: 'lembar', name: 'Pelabuhan Lembar', maps: 'https://maps.google.com/?q=-8.7310,116.0700' },
-  { id: 'praya', name: 'Kota Praya', maps: 'https://maps.google.com/?q=-8.7210,116.2940' },
+  { id: 'airport', name: 'Bandara Internasional Lombok (BIL)', nameEn: 'Lombok International Airport (BIL)', maps: 'https://maps.google.com/?q=-8.7573,116.2695' },
+  { id: 'senggigi', name: 'Area Senggigi', nameEn: 'Senggigi Area', maps: 'https://maps.google.com/?q=-8.4889,116.0442' },
+  { id: 'kuta', name: 'Kuta Lombok / Mandalika', nameEn: 'Kuta Lombok / Mandalika', maps: 'https://maps.google.com/?q=-8.8975,116.2918' },
+  { id: 'mataram', name: 'Kota Mataram', nameEn: 'Mataram City', maps: 'https://maps.google.com/?q=-8.5833,116.1167' },
+  { id: 'bangsal', name: 'Pelabuhan Bangsal', nameEn: 'Bangsal Harbor', maps: 'https://maps.google.com/?q=-8.4040,116.0770' },
+  { id: 'lembar', name: 'Pelabuhan Lembar', nameEn: 'Lembar Harbor', maps: 'https://maps.google.com/?q=-8.7310,116.0700' },
+  { id: 'praya', name: 'Kota Praya', nameEn: 'Praya City', maps: 'https://maps.google.com/?q=-8.7210,116.2940' },
 ];
 
 const destinationLocations: Location[] = [
-  { id: 'airport', name: 'Bandara Internasional Lombok (BIL)', maps: 'https://maps.google.com/?q=-8.7573,116.2695' },
-  { id: 'senggigi', name: 'Area Senggigi', maps: 'https://maps.google.com/?q=-8.4889,116.0442' },
-  { id: 'kuta', name: 'Kuta Lombok / Mandalika', maps: 'https://maps.google.com/?q=-8.8975,116.2918' },
-  { id: 'mataram', name: 'Kota Mataram', maps: 'https://maps.google.com/?q=-8.5833,116.1167' },
-  { id: 'bangsal', name: 'Pelabuhan Bangsal (ke Gili)', maps: 'https://maps.google.com/?q=-8.4040,116.0770' },
-  { id: 'lembar', name: 'Pelabuhan Lembar', maps: 'https://maps.google.com/?q=-8.7310,116.0700' },
-  { id: 'mandalika', name: 'Sirkuit Mandalika / MotoGP', maps: 'https://maps.google.com/?q=-8.8946,116.3247' },
-  { id: 'sembalun', name: 'Sembalun (Gn. Rinjani)', maps: 'https://maps.google.com/?q=-8.4645,116.4900' },
-  { id: 'senaru', name: 'Senaru (Gn. Rinjani)', maps: 'https://maps.google.com/?q=-8.3920,116.4080' },
-  { id: 'praya', name: 'Kota Praya', maps: 'https://maps.google.com/?q=-8.7210,116.2940' },
+  { id: 'airport', name: 'Bandara Internasional Lombok (BIL)', nameEn: 'Lombok International Airport (BIL)', maps: 'https://maps.google.com/?q=-8.7573,116.2695' },
+  { id: 'senggigi', name: 'Area Senggigi', nameEn: 'Senggigi Area', maps: 'https://maps.google.com/?q=-8.4889,116.0442' },
+  { id: 'kuta', name: 'Kuta Lombok / Mandalika', nameEn: 'Kuta Lombok / Mandalika', maps: 'https://maps.google.com/?q=-8.8975,116.2918' },
+  { id: 'mataram', name: 'Kota Mataram', nameEn: 'Mataram City', maps: 'https://maps.google.com/?q=-8.5833,116.1167' },
+  { id: 'bangsal', name: 'Pelabuhan Bangsal (ke Gili)', nameEn: 'Bangsal Harbor (to Gili Islands)', maps: 'https://maps.google.com/?q=-8.4040,116.0770' },
+  { id: 'lembar', name: 'Pelabuhan Lembar', nameEn: 'Lembar Harbor', maps: 'https://maps.google.com/?q=-8.7310,116.0700' },
+  { id: 'mandalika', name: 'Sirkuit Mandalika / MotoGP', nameEn: 'Mandalika Circuit / MotoGP', maps: 'https://maps.google.com/?q=-8.8946,116.3247' },
+  { id: 'sembalun', name: 'Sembalun (Gn. Rinjani)', nameEn: 'Sembalun (Mt. Rinjani)', maps: 'https://maps.google.com/?q=-8.4645,116.4900' },
+  { id: 'senaru', name: 'Senaru (Gn. Rinjani)', nameEn: 'Senaru (Mt. Rinjani)', maps: 'https://maps.google.com/?q=-8.3920,116.4080' },
+  { id: 'praya', name: 'Kota Praya', nameEn: 'Praya City', maps: 'https://maps.google.com/?q=-8.7210,116.2940' },
 ];
 
-const areaOptions = ['Senggigi', 'Kuta Mandalika', 'Mataram', 'Praya', 'Sekotong', 'Selong', 'Sembalun', 'Bangsal / Pemenang', 'Lainnya'];
+const areaOptions = ['Senggigi', 'Kuta Mandalika', 'Mataram', 'Praya', 'Sekotong', 'Selong', 'Sembalun', 'Bangsal / Pemenang'];
 
 export function TransportBooking({ whatsapp }: { whatsapp: string }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [pickupMode, setPickupMode] = useState<'loc' | 'hotel'>('loc');
   const [pickup, setPickup] = useState('');
   const [pickupHotel, setPickupHotel] = useState('');
@@ -56,7 +57,7 @@ export function TransportBooking({ whatsapp }: { whatsapp: string }) {
 
   function handleBook() {
     const dateStr = date
-      ? new Date(date).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+      ? new Date(date).toLocaleDateString(lang === 'en' ? 'en-US' : 'id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
       : '-';
 
     let pickupInfo = '';
@@ -79,7 +80,21 @@ export function TransportBooking({ whatsapp }: { whatsapp: string }) {
       destMaps = loc?.maps ? `\n📌 Maps: ${loc.maps}` : '';
     }
 
-    const msg = `Halo Lombok Nusa Alam! 🚗
+    const pplLabel = lang === 'en' ? 'passengers' : 'orang';
+
+    const msg = lang === 'en'
+      ? `Hello Lombok Nusa Alam! 🚗
+
+I'd like to book a transport:
+
+📍 *Pickup:* ${pickupInfo}${pickupMaps}
+📍 *Destination:* ${destInfo}${destMaps}
+📅 *Date:* ${dateStr}
+⏰ *Time:* ${time || '-'}
+👥 *Passengers:* ${pax} ${pplLabel}
+
+Please let me know the price and availability. Thank you!`
+      : `Halo Lombok Nusa Alam! 🚗
 
 Saya ingin memesan transport:
 
@@ -87,7 +102,7 @@ Saya ingin memesan transport:
 📍 *Tujuan:* ${destInfo}${destMaps}
 📅 *Tanggal:* ${dateStr}
 ⏰ *Jam:* ${time || '-'}
-👥 *Penumpang:* ${pax} orang
+👥 *Penumpang:* ${pax} ${pplLabel}
 
 Mohon info harga dan ketersediaan. Terima kasih!`;
 
@@ -109,7 +124,7 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
           onClick={() => onChange('loc')}
           className={`text-[10px] px-2.5 py-1 rounded-full font-semibold transition-all ${mode === 'loc' ? 'bg-gold-400 text-navy-900' : 'bg-navy-900/5 text-navy-900/40 hover:bg-navy-900/10'}`}
         >
-          <MapPin className="w-3 h-3 inline -mt-0.5 mr-0.5" /> Lokasi
+          <MapPin className="w-3 h-3 inline -mt-0.5 mr-0.5" /> <T en="Location">Lokasi</T>
         </button>
         <button
           type="button"
@@ -129,7 +144,7 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-10 h-[1px] bg-gold-400" />
             <span className="text-gold-400 text-[11px] font-semibold tracking-[0.25em] uppercase">
-              Book Transport
+              <T en="Book Transport">Pesan Transport</T>
             </span>
             <div className="w-10 h-[1px] bg-gold-400" />
           </div>
@@ -150,15 +165,15 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
               <div className="flex items-center justify-between mb-2">
                 <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em]">
                   <MapPin className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />
-                  Lokasi Jemput / Pickup
+                  <T en="Pickup Location">Lokasi Jemput</T>
                 </label>
                 <ModeToggle mode={pickupMode} onChange={(m) => { setPickupMode(m); setPickup(''); setPickupHotel(''); setPickupArea(''); }} />
               </div>
               {pickupMode === 'loc' ? (
                 <select value={pickup} onChange={(e) => setPickup(e.target.value)} className={selectCls}>
-                  <option value="">— Pilih lokasi jemput —</option>
+                  <option value="">{t('— Pilih lokasi jemput —', '— Select pickup location —')}</option>
                   {pickupLocations.map((loc) => (
-                    <option key={loc.id} value={loc.id}>{loc.name}</option>
+                    <option key={loc.id} value={loc.id}>{t(loc.name, loc.nameEn)}</option>
                   ))}
                 </select>
               ) : (
@@ -167,11 +182,11 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
                     type="text"
                     value={pickupHotel}
                     onChange={(e) => setPickupHotel(e.target.value)}
-                    placeholder="Nama hotel/villa (contoh: Katamaran Resort)"
+                    placeholder={t('Nama hotel/villa (contoh: Katamaran Resort)', 'Hotel/villa name (e.g. Katamaran Resort)')}
                     className={inputCls}
                   />
                   <select value={pickupArea} onChange={(e) => setPickupArea(e.target.value)} className={selectCls}>
-                    <option value="">— Area lokasi hotel —</option>
+                    <option value="">{t('— Area lokasi hotel —', '— Hotel area —')}</option>
                     {areaOptions.map((a) => (
                       <option key={a} value={a}>{a}</option>
                     ))}
@@ -185,15 +200,15 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
               <div className="flex items-center justify-between mb-2">
                 <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em]">
                   <MapPin className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />
-                  Tujuan / Destination
+                  <T en="Destination">Tujuan</T>
                 </label>
                 <ModeToggle mode={destMode} onChange={(m) => { setDestMode(m); setDest(''); setDestHotel(''); setDestArea(''); }} />
               </div>
               {destMode === 'loc' ? (
                 <select value={dest} onChange={(e) => setDest(e.target.value)} className={selectCls}>
-                  <option value="">— Pilih tujuan —</option>
+                  <option value="">{t('— Pilih tujuan —', '— Select destination —')}</option>
                   {destinationLocations.map((loc) => (
-                    <option key={loc.id} value={loc.id}>{loc.name}</option>
+                    <option key={loc.id} value={loc.id}>{t(loc.name, loc.nameEn)}</option>
                   ))}
                 </select>
               ) : (
@@ -202,11 +217,11 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
                     type="text"
                     value={destHotel}
                     onChange={(e) => setDestHotel(e.target.value)}
-                    placeholder="Nama hotel/villa (contoh: Novotel Lombok)"
+                    placeholder={t('Nama hotel/villa (contoh: Novotel Lombok)', 'Hotel/villa name (e.g. Novotel Lombok)')}
                     className={inputCls}
                   />
                   <select value={destArea} onChange={(e) => setDestArea(e.target.value)} className={selectCls}>
-                    <option value="">— Area lokasi hotel —</option>
+                    <option value="">{t('— Area lokasi hotel —', '— Hotel area —')}</option>
                     {areaOptions.map((a) => (
                       <option key={a} value={a}>{a}</option>
                     ))}
@@ -217,39 +232,35 @@ Mohon info harga dan ketersediaan. Terima kasih!`;
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-            {/* Date */}
             <div>
               <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-2 block">
                 <Calendar className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />
-                Tanggal / Date
+                <T en="Date">Tanggal</T>
               </label>
               <input type="date" min={minDate} value={date} onChange={(e) => setDate(e.target.value)} className={inputCls} />
             </div>
 
-            {/* Time */}
             <div>
               <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-2 block">
                 <Clock className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />
-                Jam Jemput / Pickup Time
+                <T en="Pickup Time">Jam Jemput</T>
               </label>
               <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className={inputCls} />
             </div>
 
-            {/* Passengers */}
             <div>
               <label className="text-[11px] font-semibold text-navy-900/40 uppercase tracking-[0.15em] mb-2 block">
                 <Users className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />
-                Penumpang / Passengers
+                <T en="Passengers">Penumpang</T>
               </label>
               <select value={pax} onChange={(e) => setPax(Number(e.target.value))} className={selectCls}>
                 {Array.from({ length: 15 }, (_, i) => i + 1).map((n) => (
-                  <option key={n} value={n}>{n} orang</option>
+                  <option key={n} value={n}>{n} {t('orang', 'passengers')}</option>
                 ))}
               </select>
             </div>
           </div>
 
-          {/* Book Button */}
           <div className="text-center">
             <button
               onClick={handleBook}

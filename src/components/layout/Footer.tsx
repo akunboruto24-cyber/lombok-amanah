@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { MapPin, Phone, Mail, Globe } from 'lucide-react';
-import { T } from '@/lib/language';
+import { T, useLanguage } from '@/lib/language';
 import type { SiteSettings } from '@/types/database';
 
 export function Footer({ settings }: { settings: SiteSettings }) {
+  const { lang } = useLanguage();
   return (
     <footer className="bg-navy-900 border-t border-white/[0.04]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-16">
@@ -66,7 +67,7 @@ export function Footer({ settings }: { settings: SiteSettings }) {
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <Phone className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent('Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin bertanya tentang layanan tour & transport.\n\nTerima kasih 🙏')}`} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
+                <a href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lang === 'en' ? 'Hello Lombok Nusa Alam Tour & Travel! 🌴\n\nI\'d like to ask about your tour & transport services.\n\nThank you 🙏' : 'Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin bertanya tentang layanan tour & transport.\n\nTerima kasih 🙏')}`} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
                   {settings.phone}
                 </a>
               </li>
