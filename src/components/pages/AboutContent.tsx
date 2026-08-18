@@ -56,7 +56,7 @@ export function AboutContent({ settings }: { settings: SiteSettings }) {
             className="inline-flex items-center gap-3 px-8 py-4 bg-gold-400 text-navy-900 font-bold rounded-full hover:bg-gold-300 transition-all text-[15px]"
           >
             <Phone className="w-5 h-5" />
-            Chat WhatsApp
+            <T en="Chat WhatsApp">Chat WhatsApp</T>
           </a>
         </div>
       </div>

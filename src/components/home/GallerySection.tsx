@@ -37,7 +37,7 @@ export function GallerySection({ photos }: Props) {
             <div key={photo} className="break-inside-avoid rounded-xl overflow-hidden group relative">
               <Image
                 src={`/gallery/${photo}`}
-                alt={`Dokumentasi tour ${i + 1}`}
+                alt={`Tour documentation ${i + 1}`}
                 width={400}
                 height={300}
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"

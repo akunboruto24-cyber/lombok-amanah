@@ -308,7 +308,7 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings, 
                 className="inline-flex items-center gap-3 px-10 py-4.5 bg-gold-400 text-navy-900 font-semibold rounded-full hover:bg-gold-300 transition-all hover:shadow-xl hover:shadow-gold-400/20 active:scale-[0.97] text-[15px]"
               >
                 <Phone className="w-5 h-5" />
-                Chat WhatsApp
+                <T en="Chat WhatsApp">Chat WhatsApp</T>
               </a>
             </div>
           </div>
