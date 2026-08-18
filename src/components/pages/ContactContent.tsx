@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, MapPin, Globe, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { T, useLanguage } from '@/lib/language';
 import type { SiteSettings } from '@/types/database';
 
@@ -37,7 +37,7 @@ export function ContactContent({ settings }: { settings: SiteSettings }) {
             </div>
             <div>
               <p className="text-[13px] font-bold text-navy-900 mb-1">WhatsApp</p>
-              <p className="text-[14px] text-navy-900/50">+62 819-0785-5550</p>
+              <p className="text-[14px] text-navy-900/50">+62 821-4332-571</p>
               <p className="text-[11px] text-[#25D366] font-medium mt-1"><T en="Click to chat directly">Klik untuk chat langsung</T></p>
             </div>
           </a>
@@ -52,21 +52,6 @@ export function ContactContent({ settings }: { settings: SiteSettings }) {
             <div>
               <p className="text-[13px] font-bold text-navy-900 mb-1">Email</p>
               <p className="text-[14px] text-navy-900/50">{settings.email}</p>
-            </div>
-          </a>
-
-          <a
-            href={settings.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-navy-900/[0.04] hover:border-gold-400/30 transition-all"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
-              <Globe className="w-5 h-5 text-gold-400" />
-            </div>
-            <div>
-              <p className="text-[13px] font-bold text-navy-900 mb-1">Instagram</p>
-              <p className="text-[14px] text-navy-900/50">@lomboknusaalam</p>
             </div>
           </a>
 

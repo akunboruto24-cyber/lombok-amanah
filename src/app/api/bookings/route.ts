@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
         notes ? `Catatan: ${notes}` : null,
       ].filter(Boolean).join('\n');
 
-  const whatsappUrl = `https://wa.me/6281907855550?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/628214332571?text=${encodeURIComponent(whatsappMessage)}`;
 
   return NextResponse.json({
     success: true,

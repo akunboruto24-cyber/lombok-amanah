@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { T, useLanguage } from '@/lib/language';
 import type { SiteSettings } from '@/types/database';
 
@@ -69,12 +69,6 @@ export function Footer({ settings }: { settings: SiteSettings }) {
                 <Phone className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
                 <a href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lang === 'en' ? 'Hello Lombok Nusa Alam Tour & Travel! 🌴\n\nI\'d like to ask about your tour & transport services.\n\nThank you 🙏' : 'Halo Lombok Nusa Alam Tour & Travel! 🌴\n\nSaya ingin bertanya tentang layanan tour & transport.\n\nTerima kasih 🙏')}`} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
                   {settings.phone}
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Globe className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-                <a href={settings.instagram} target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/30 hover:text-gold-400 transition-colors">
-                  @lomboknusaalam
                 </a>
               </li>
               <li className="flex items-start gap-2">
