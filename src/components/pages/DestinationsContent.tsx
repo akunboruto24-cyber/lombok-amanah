@@ -59,7 +59,7 @@ export function DestinationsContent({ destinations }: { destinations: Destinatio
                       </div>
                     )}
                     <div className="p-5">
-                      <h3 className="text-[15px] font-bold text-navy-900 mb-1">{dest.name}</h3>
+                      <h3 className="text-[15px] font-bold text-navy-900 mb-1">{lang === 'en' ? dest.name_en || dest.name : dest.name}</h3>
                       <p className="text-[11px] text-gold-400 font-medium uppercase tracking-wider mb-3">{dest.location}</p>
                       <p className="text-[13px] text-navy-900/50 leading-[1.7]">{lang === 'en' ? dest.description_en || dest.description : dest.description}</p>
                     </div>

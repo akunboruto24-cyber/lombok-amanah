@@ -24,7 +24,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
             <Link href="/tours" className="inline-flex items-center gap-2 text-white/60 text-[13px] hover:text-gold-400 transition-colors mb-4">
               <ArrowLeft className="w-4 h-4" /> <T en="Back to Tours">Kembali ke Tour</T>
             </Link>
-            <h1 className="text-3xl sm:text-5xl font-display font-bold text-white mb-3">{tour.name}</h1>
+            <h1 className="text-3xl sm:text-5xl font-display font-bold text-white mb-3">{lang === 'en' ? tour.name_en || tour.name : tour.name}</h1>
             <div className="flex flex-wrap items-center gap-4">
               {tour.review_count && tour.review_count > 0 && (
                 <div className="flex items-center gap-1.5">
@@ -90,7 +90,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                     <div key={dest.id} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
                       <MapPin className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="text-[14px] font-semibold text-navy-900">{dest.name}</p>
+                        <p className="text-[14px] font-semibold text-navy-900">{lang === 'en' ? dest.name_en || dest.name : dest.name}</p>
                         <p className="text-[12px] text-navy-900/40 capitalize">{dest.category} • {dest.location}</p>
                       </div>
                     </div>

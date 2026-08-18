@@ -10,6 +10,7 @@ export interface Destination {
   id: string;
   slug: string;
   name: string;
+  name_en: string;
   description: string | null;
   description_en: string | null;
   category: DestinationCategory;
@@ -60,6 +61,7 @@ export interface TourPackage {
   id: string;
   slug: string;
   name: string;
+  name_en: string;
   category: TourCategory;
   price: number;
   price_usd: number | null;

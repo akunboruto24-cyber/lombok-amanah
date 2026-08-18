@@ -165,7 +165,7 @@ export function HomeContent({ tours, destinations, vehicles, reviews, settings, 
                     <MapPin className="w-3 h-3 text-gold-400" />
                     <p className="text-gold-400/80 text-[10px] font-medium uppercase tracking-wider">{dest.location}</p>
                   </div>
-                  <h3 className="text-white font-bold text-[14px] sm:text-[15px]">{dest.name}</h3>
+                  <h3 className="text-white font-bold text-[14px] sm:text-[15px]">{lang === 'en' ? dest.name_en || dest.name : dest.name}</h3>
                 </div>
               </Link>
             ))}

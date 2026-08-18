@@ -4,11 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Clock, MapPin, Users, Star } from 'lucide-react';
 import { formatPrice } from '@/lib/data';
-import { T } from '@/lib/language';
+import { T, useLanguage } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
 
 export function TourCard({ tour }: { tour: TourPackage }) {
-  const destNames = tour.destinations?.map(d => d.name).join(' • ') || '';
+  const { lang } = useLanguage();
+  const destNames = tour.destinations?.map(d => lang === 'en' ? d.name_en || d.name : d.name).join(' • ') || '';
 
   return (
     <article className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-navy-900/[0.06] transition-all duration-500 hover:-translate-y-1 border border-navy-900/[0.06]">
@@ -42,7 +43,7 @@ export function TourCard({ tour }: { tour: TourPackage }) {
       <div className="p-5">
         <Link href={`/tours/${tour.slug}`}>
           <h3 className="text-[18px] font-display font-bold text-navy-900 mb-2 group-hover:text-gold-400 transition-colors">
-            {tour.name}
+            {lang === 'en' ? tour.name_en || tour.name : tour.name}
           </h3>
         </Link>
 
