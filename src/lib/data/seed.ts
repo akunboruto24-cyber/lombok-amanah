@@ -230,7 +230,7 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: 'veh-003', name: 'Toyota HiAce', slug: 'hiace',
-    photo: 'https://images.pexels.com/photos/37498790/pexels-photo-37498790.jpeg?auto=compress&cs=tinysrgb&w=800',
+    photo: '/vehicles/haice.jpg',
     seat_capacity: 15, luggage_capacity: 8, daily_price: 1200000,
     description: 'Minibus luas untuk rombongan besar, wisata perusahaan, dan transfer acara.',
     description_en: 'A spacious minibus for large groups, corporate tours, and event transfers.',
