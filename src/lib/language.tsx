@@ -21,7 +21,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem('lang') as Lang;
-    if (saved === 'en' || saved === 'id') setLangState(saved);
+    if (saved === 'en' || saved === 'id') {
+      setLangState(saved);
+    } else {
+      const browserLang = navigator.language || '';
+      const isIndonesian = browserLang.startsWith('id') || browserLang.startsWith('ms');
+      setLangState(isIndonesian ? 'id' : 'en');
+    }
   }, []);
 
   const setLang = useCallback((l: Lang) => {
