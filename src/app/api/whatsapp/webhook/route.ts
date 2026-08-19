@@ -1,10 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createHmac } from 'crypto';
 import { sendWhatsAppMessage, markAsRead } from '@/lib/whatsapp';
 import { getAIResponse } from '@/lib/ai-assistant';
 
-const OWNER_PHONE = '628214332571';
+const OWNER_PHONE = process.env.OWNER_PHONE || '628214332571';
 
-// GET — Meta webhook verification
+function verifySignature(body: string, signature: string | null): boolean {
+  const appSecret = process.env.META_APP_SECRET;
+  if (!appSecret) return true; // skip if not configured yet
+
+  if (!signature) return false;
+  const expected = createHmac('sha256', appSecret).update(body).digest('hex');
+  return signature === `sha256=${expected}`;
+}
+
 export async function GET(req: NextRequest) {
   const params = req.nextUrl.searchParams;
   const mode = params.get('hub.mode');
@@ -18,10 +27,17 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
 }
 
-// POST — incoming messages
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    const rawBody = await req.text();
+
+    const signature = req.headers.get('x-hub-signature-256');
+    if (!verifySignature(rawBody, signature)) {
+      console.warn('[Webhook] Invalid signature');
+      return NextResponse.json({ error: 'Invalid signature' }, { status: 401 });
+    }
+
+    const body = JSON.parse(rawBody);
 
     const entry = body.entry?.[0];
     const changes = entry?.changes?.[0];
@@ -32,11 +48,10 @@ export async function POST(req: NextRequest) {
     }
 
     const msg = value.messages[0];
-    const from = msg.from; // sender phone number
+    const from = msg.from;
     const messageId = msg.id;
     const contactName = value.contacts?.[0]?.profile?.name || 'Customer';
 
-    // Only handle text messages
     if (msg.type !== 'text') {
       await sendWhatsAppMessage(from, 'Terima kasih! 🌴 Saat ini kami hanya bisa membalas pesan teks. Silakan kirim pertanyaan Anda dalam bentuk teks.');
       return NextResponse.json({ status: 'non-text' });
@@ -44,18 +59,19 @@ export async function POST(req: NextRequest) {
 
     const text = msg.text.body;
 
-    // Mark as read
+    if (text.length > 2000) {
+      await sendWhatsAppMessage(from, 'Pesan terlalu panjang. Mohon kirim pesan yang lebih singkat.');
+      return NextResponse.json({ status: 'too-long' });
+    }
+
     await markAsRead(messageId);
 
-    // Get AI response
     const { reply, forwardToAdmin } = await getAIResponse(from, text);
 
-    // Send AI reply to customer
     await sendWhatsAppMessage(from, reply);
 
-    // Forward to admin if needed
     if (forwardToAdmin) {
-      const adminMsg = `📩 *Pesan perlu ditindaklanjuti*\n\n👤 ${contactName} (${from})\n💬 "${text}"\n\n🤖 AI sudah balas:\n"${reply.substring(0, 200)}${reply.length > 200 ? '...' : ''}"`;
+      const adminMsg = `📩 *Pesan perlu ditindaklanjuti*\n\n👤 ${contactName} (${from})\n💬 "${text.substring(0, 300)}"\n\n🤖 AI sudah balas:\n"${reply.substring(0, 200)}${reply.length > 200 ? '...' : ''}"`;
       await sendWhatsAppMessage(OWNER_PHONE, adminMsg);
     }
 

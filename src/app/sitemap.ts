@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { tourPackages } from '@/lib/data';
+import { tourPackages } from '@/lib/data/seed';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://lomboknusaalam.com';

@@ -76,12 +76,18 @@ const SYSTEM_PROMPT = `Kamu adalah asisten customer service untuk **Lombok Nusa 
 Jika customer sudah siap bayar, minta transfer, tanya rekening, minta diskon besar, komplain, atau request di luar paket — AKHIRI pesan dengan tag: [FORWARD_TO_ADMIN]`;
 
 const conversationCache = new Map<string, { role: string; parts: { text: string }[] }[]>();
+const MAX_CACHE_SIZE = 500;
 
 export async function getAIResponse(from: string, message: string): Promise<{ reply: string; forwardToAdmin: boolean }> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     console.error('[AI] Missing GEMINI_API_KEY');
     return { reply: 'Terima kasih telah menghubungi Lombok Nusa Alam! 🌴 Pesan Anda akan segera dibalas oleh tim kami.', forwardToAdmin: true };
+  }
+
+  if (conversationCache.size >= MAX_CACHE_SIZE) {
+    const firstKey = conversationCache.keys().next().value;
+    if (firstKey) conversationCache.delete(firstKey);
   }
 
   const history = conversationCache.get(from) || [];
