@@ -1,4 +1,4 @@
-import Anthropic from '@anthropic-ai/sdk';
+const GEMINI_API = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 const SYSTEM_PROMPT = `Kamu adalah asisten customer service untuk **Lombok Nusa Alam Tour & Travel**, perusahaan tour dan transport profesional di Pulau Lombok, Indonesia.
 
@@ -75,46 +75,46 @@ const SYSTEM_PROMPT = `Kamu adalah asisten customer service untuk **Lombok Nusa 
 ## Kata Kunci Forward ke Admin
 Jika customer sudah siap bayar, minta transfer, tanya rekening, minta diskon besar, komplain, atau request di luar paket — AKHIRI pesan dengan tag: [FORWARD_TO_ADMIN]`;
 
-let client: Anthropic | null = null;
-
-function getClient(): Anthropic | null {
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('[AI] Missing ANTHROPIC_API_KEY');
-    return null;
-  }
-  if (!client) {
-    client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
-  }
-  return client;
-}
-
-const conversationCache = new Map<string, { role: 'user' | 'assistant'; content: string }[]>();
+const conversationCache = new Map<string, { role: string; parts: { text: string }[] }[]>();
 
 export async function getAIResponse(from: string, message: string): Promise<{ reply: string; forwardToAdmin: boolean }> {
-  const ai = getClient();
-  if (!ai) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error('[AI] Missing GEMINI_API_KEY');
     return { reply: 'Terima kasih telah menghubungi Lombok Nusa Alam! 🌴 Pesan Anda akan segera dibalas oleh tim kami.', forwardToAdmin: true };
   }
 
   const history = conversationCache.get(from) || [];
-  history.push({ role: 'user', content: message });
+  history.push({ role: 'user', parts: [{ text: message }] });
 
-  // Keep last 20 messages to stay within context
   if (history.length > 20) history.splice(0, history.length - 20);
 
   try {
-    const response = await ai.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 500,
-      system: SYSTEM_PROMPT,
-      messages: history,
+    const res = await fetch(`${GEMINI_API}?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents: history,
+        generationConfig: {
+          maxOutputTokens: 500,
+          temperature: 0.7,
+        },
+      }),
     });
 
-    const reply = response.content[0].type === 'text' ? response.content[0].text : '';
+    if (!res.ok) {
+      const err = await res.text();
+      console.error('[AI] Gemini error:', err);
+      return { reply: 'Terima kasih telah menghubungi Lombok Nusa Alam! 🌴 Tim kami akan segera membalas pesan Anda.', forwardToAdmin: true };
+    }
+
+    const data = await res.json();
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     const forwardToAdmin = reply.includes('[FORWARD_TO_ADMIN]');
     const cleanReply = reply.replace('[FORWARD_TO_ADMIN]', '').trim();
 
-    history.push({ role: 'assistant', content: reply });
+    history.push({ role: 'model', parts: [{ text: reply }] });
     conversationCache.set(from, history);
 
     return { reply: cleanReply, forwardToAdmin };
@@ -124,10 +124,7 @@ export async function getAIResponse(from: string, message: string): Promise<{ re
   }
 }
 
-// Clean old conversations (> 1 hour)
+// Clean old conversations every hour
 setInterval(() => {
-  const now = Date.now();
-  conversationCache.forEach((_, key) => {
-    conversationCache.delete(key);
-  });
+  conversationCache.clear();
 }, 60 * 60 * 1000);
