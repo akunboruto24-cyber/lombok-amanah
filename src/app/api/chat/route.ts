@@ -327,8 +327,9 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model: GROQ_MODEL,
         messages: groqMessages,
-        max_tokens: 600,
+        max_tokens: 2000,
         temperature: 0.7,
+        reasoning_effort: 'low',
       }),
     });
 
