@@ -425,7 +425,7 @@ export const tourPackages: TourPackage[] = [
   },
   {
     id: 'tour-008', slug: 'tour-air-terjun-2', name: 'Tour Air Terjun II', name_en: 'Waterfall Tour II', category: 'daily_tour',
-    price: 850000, price_usd: null, duration: '8-10 jam', meeting_time: '07:00', finish_time: '16:00', max_passenger: 4,
+    price: 950000, price_usd: null, duration: '8-10 jam', meeting_time: '07:00', finish_time: '16:00', max_passenger: 4,
     cover_image: '/destinations/Air Terjun Sendang Gile.jpg',
     gallery: [], description: 'Trekking ke air terjun kembar legendaris di kaki Gunung Rinjani — Air Terjun Sendang Gile setinggi 31 meter dan Tiu Kelep yang spektakuler bertingkat, dikelilingi hutan hujan tropis.',
     description_en: 'Trek to the legendary twin waterfalls at the foot of Mount Rinjani — the thundering 31-meter Sendang Gile waterfall and the spectacular multi-tiered Tiu Kelep, surrounded by lush tropical rainforest.',
