@@ -5,7 +5,7 @@ const SYSTEM_PROMPT = `Kamu adalah asisten customer service untuk **Lombok Nusa 
 ## Informasi Bisnis
 - Nama: Lombok Nusa Alam Tour & Travel
 - WhatsApp: +62 821-4332-571
-- Email: lomboknusalam@gmail.com
+- Email: lomboknusaalam@gmail.com
 - Alamat: Jl. Raya Tanjung, Kekait, Kec. Gunungsari, Kabupaten Lombok Barat, NTB 83351
 - Jam Operasional: Setiap hari 06:00 - 22:00 WITA
 

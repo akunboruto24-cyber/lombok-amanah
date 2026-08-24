@@ -85,7 +85,7 @@ export default async function RootLayout({
               name: 'Lombok Nusa Alam Tour & Travel',
               url: 'https://lomboknusaalam.com',
               telephone: '+62821-4332-571',
-              email: 'lomboknusalam@gmail.com',
+              email: 'lomboknusaalam@gmail.com',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'Jl. Raya Tanjung, Kekait',

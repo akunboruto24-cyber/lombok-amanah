@@ -8,7 +8,7 @@ export const siteSettings: SiteSettings = {
   tagline: 'Tour And Travel',
   phone: '+62821-4332-571',
   whatsapp: '628214332571',
-  email: 'lomboknusalam@gmail.com',
+  email: 'lomboknusaalam@gmail.com',
   address: 'Jl. Raya Tanjung, Kekait, Kec. Gunungsari, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83351',
   instagram: '',
   facebook: '',

@@ -18,7 +18,7 @@ const BUSINESS_KNOWLEDGE = `## ⚠️ URGENT NOTICE (August 2026)
 
 ## COMPANY — Lombok Nusa Alam Tour & Travel
 Licensed local tour operator in Lombok Island, Indonesia. 5+ years experience serving international & domestic guests.
-- Website: lomboknusaalam.com | WhatsApp: +62 821-4332-571 | Email: lomboknusalam@gmail.com
+- Website: lomboknusaalam.com | WhatsApp: +62 821-4332-571 | Email: lomboknusaalam@gmail.com
 - Address: Jl. Raya Tanjung, Kekait, Gunungsari, Lombok Barat, NTB 83351
 - Hours: Daily 06:00-22:00 WITA (UTC+8)
 

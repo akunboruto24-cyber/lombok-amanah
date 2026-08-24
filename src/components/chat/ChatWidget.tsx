@@ -232,7 +232,7 @@ export function ChatWidget() {
               </button>
             </form>
             <p className="text-[10px] text-navy-900/40 text-center mt-2">
-              {t('Powered by Gemini AI • Balasan otomatis', 'Powered by Gemini AI • Auto-response')}
+              {t('Layanan 24 jam Lombok Nusa Alam', '24/7 Service by Lombok Nusa Alam')}
             </p>
           </div>
         </div>
