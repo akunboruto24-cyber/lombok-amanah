@@ -62,14 +62,14 @@ Licensed local tour operator in Lombok Island, Indonesia. 5+ years experience se
 - **Sunset Extension**: +Rp 100-200k (extended hours until 19:00)
 
 ## PAYMENT & BOOKING
-- **Payment methods**: Bank Transfer (BCA, Mandiri, BRI, BNI), QRIS (all e-wallet), Cash to driver
-- **Deposit**: 30% to confirm booking, balance paid before tour or on tour day
-- **Currency**: IDR or USD (paid in cash at IDR equivalent)
+- **Payment method**: *CASH TO DRIVER ONLY* — pay full amount directly to your driver on tour day
+- **No transfer required** — just confirm booking via WhatsApp to reserve slot
+- **Currency accepted**: IDR or USD (equivalent to IDR rate ~16.000/USD)
 - **Booking confirmation**: within 30 minutes via WhatsApp during operating hours
 - **Cancellation Policy**:
-  - Free cancellation >24h before tour: full refund of deposit
-  - 12-24h before: 50% refund of deposit
-  - <12h or no-show: no refund
+  - Free cancellation >24h before tour
+  - 12-24h before: please notify us so driver doesn't wait
+  - <12h or no-show: not fair to our driver, please avoid
   - Rescheduling: free if >24h notice
 
 ## WEATHER POLICY
