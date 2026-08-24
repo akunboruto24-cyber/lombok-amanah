@@ -376,7 +376,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-006', slug: 'tour-air-terjun-1', name: 'Tour Air Terjun I', name_en: 'Waterfall Tour I', category: 'daily_tour',
     price: 850000, price_usd: null, duration: '6-8 jam', meeting_time: '08:00', finish_time: '15:00', max_passenger: 4,
-    cover_image: '/destinations/Air Terjun Benang Stokel.jpg',
+    cover_image: '/destinations/Air Terjun Benang Kelambu.jpg',
     gallery: [], description: 'Telusuri hutan tropis yang rimbun untuk menemukan dua air terjun terindah Lombok — Benang Stokel yang megah bertingkat dan Benang Kelambu yang eksotis bak tirai.',
     description_en: 'Journey through lush tropical forests to discover two of Lombok\'s most breathtaking waterfalls — the majestic multi-tiered Benang Stokel and the ethereal curtain-like Benang Kelambu.',
     itinerary: [
