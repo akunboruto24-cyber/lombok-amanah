@@ -43,6 +43,26 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-10">
+            {tour.destinations?.some(d => d.slug === 'desa-sade' || d.name?.toLowerCase().includes('sade')) && (
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <span className="text-amber-700 text-lg font-bold">!</span>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <h3 className="text-[15px] font-bold text-amber-900">
+                      <T en="Notice: Desa Sade Temporarily Closed">Pemberitahuan: Desa Sade Sementara Ditutup</T>
+                    </h3>
+                    <p className="text-[13px] text-amber-800/90 leading-relaxed">
+                      <T en="Due to a recent fire, Desa Sade is temporarily closed to visitors. During this period, the tour continues normally with a visit to Desa Ende (another authentic Sasak village nearby) offering a similar cultural experience. All other destinations in this tour remain unchanged. We appreciate your understanding.">
+                        Karena kebakaran beberapa hari lalu, Desa Sade untuk sementara ditutup untuk kunjungan wisata. Selama masa penutupan, tour tetap berjalan dengan kunjungan ke Desa Ende (desa tradisional Sasak lainnya) yang menawarkan pengalaman budaya serupa. Destinasi lainnya di tour ini tidak berubah. Terima kasih atas pengertian Anda.
+                      </T>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <section>
               <h2 className="text-xl font-display font-bold text-navy-900 mb-4">Overview</h2>
               <p className="text-[15px] text-navy-900/60 leading-[1.8]">{lang === 'en' ? tour.description_en || tour.description : tour.description}</p>
