@@ -53,8 +53,8 @@ export async function POST(req: NextRequest) {
   let cleanMapsUrl = '';
   if (pickup_maps && typeof pickup_maps === 'string') {
     const url = pickup_maps.trim();
-    if (/^https:\/\/(www\.)?(google\.[a-z.]+\/maps|maps\.google\.[a-z.]+|maps\.app\.goo\.gl|goo\.gl\/maps)[^\s<>"']{0,500}$/i.test(url)) {
-      cleanMapsUrl = url.slice(0, 500);
+    if (/^https:\/\/(www\.)?(google\.[a-z.]+\/maps|maps\.google\.[a-z.]+|maps\.app\.goo\.gl|goo\.gl\/maps)[^\s<>"']{0,800}$/i.test(url)) {
+      cleanMapsUrl = url.slice(0, 800);
     }
   }
 
