@@ -6,6 +6,7 @@ import { Clock, Users, MapPin, Star, Check, X as XIcon, ArrowLeft, Car, Calendar
 import { T, useLanguage } from '@/lib/language';
 import { formatPrice, idrToUsd } from '@/lib/data';
 import { BookingForm } from '@/components/booking/BookingForm';
+import { DestinationCarousel } from '@/components/tours/DestinationCarousel';
 import type { TourPackage, SiteSettings } from '@/types/database';
 
 export function TourDetailContent({ tour, settings }: { tour: TourPackage; settings: SiteSettings }) {
@@ -84,8 +85,14 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
 
             {tour.destinations && tour.destinations.length > 0 && (
               <section>
-                <h2 className="text-xl font-display font-bold text-navy-900 mb-4"><T en="Destinations">Destinasi</T></h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
+                  <T en="Destinations">Destinasi</T>
+                  <span className="text-[13px] font-normal text-navy-900/40 ml-2">
+                    ({tour.destinations.length})
+                  </span>
+                </h2>
+                <DestinationCarousel destinations={tour.destinations} />
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {tour.destinations.map((dest) => (
                     <div key={dest.id} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
                       <MapPin className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" />
