@@ -54,6 +54,9 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
       const data = await res.json();
       if (data.success) {
         setResult(data);
+        if (data.whatsappUrl && typeof window !== 'undefined') {
+          window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
       }
     } catch {
       alert(t('Gagal mengirim booking. Coba lagi.', 'Failed to submit booking. Please try again.'));
@@ -76,7 +79,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               <p className="text-3xl font-mono font-bold text-[#C8A45A] mt-2">{result.bookingCode}</p>
             </div>
             <p className="text-white/40 text-sm">
-              <T en="Continue via WhatsApp to confirm and make payment">Lanjutkan via WhatsApp untuk konfirmasi dan pembayaran</T>
+              <T en="WhatsApp should have opened automatically. If not, tap the button below.">WhatsApp otomatis terbuka. Jika tidak, klik tombol di bawah.</T>
             </p>
             <a
               href={result.whatsappUrl}
@@ -85,7 +88,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               className="flex items-center justify-center gap-2 w-full py-3.5 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-all"
             >
               <ExternalLink className="w-5 h-5" />
-              <T en="Confirm via WhatsApp">Konfirmasi via WhatsApp</T>
+              <T en="Open WhatsApp">Buka WhatsApp</T>
             </a>
             <button
               onClick={() => { setResult(null); setForm({ name: '', phone: '', email: '', country: '', tour: '', date: '', time: '08:00', pickup: '', pickup_maps: '', area: '', passengers: '2', notes: '' }); }}
