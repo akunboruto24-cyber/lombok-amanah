@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 
-const GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-20b';
+const GROQ_MODEL = process.env.GROQ_MODEL || 'groq/compound';
 const GROQ_API = 'https://api.groq.com/openai/v1/chat/completions';
 
 const chatRateLimit = new Map<string, { count: number; resetTime: number }>();
@@ -327,9 +327,8 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         model: GROQ_MODEL,
         messages: groqMessages,
-        max_tokens: 2000,
+        max_tokens: 1500,
         temperature: 0.7,
-        reasoning_effort: 'low',
       }),
     });
 
