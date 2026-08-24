@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   }
 
   const data = await req.json();
-  const { name, phone, email, country, tour, date, time, pickup, passengers, notes, lang } = data;
+  const { name, phone, email, country, tour, date, time, pickup, pickup_maps, area, passengers, notes, lang } = data;
 
   if (!name || !phone || !tour || !date) {
     return NextResponse.json({ error: lang === 'en' ? 'Incomplete data' : 'Data tidak lengkap' }, { status: 400 });
@@ -46,8 +46,17 @@ export async function POST(req: NextRequest) {
   const cleanDate = sanitize(String(date), 20);
   const cleanTime = time ? sanitize(String(time), 10) : '';
   const cleanPickup = pickup ? sanitize(String(pickup), 200) : '';
+  const cleanArea = area ? sanitize(String(area), 100) : '';
   const cleanPassengers = Math.max(1, Math.min(15, parseInt(String(passengers)) || 1));
   const cleanNotes = notes ? sanitize(String(notes), 500) : '';
+
+  let cleanMapsUrl = '';
+  if (pickup_maps && typeof pickup_maps === 'string') {
+    const url = pickup_maps.trim();
+    if (/^https:\/\/(www\.)?(google\.[a-z.]+\/maps|maps\.google\.[a-z.]+|maps\.app\.goo\.gl|goo\.gl\/maps)[^\s<>"']{0,500}$/i.test(url)) {
+      cleanMapsUrl = url.slice(0, 500);
+    }
+  }
 
   if (cleanName.length < 2) {
     return NextResponse.json({ error: lang === 'en' ? 'Invalid name' : 'Nama tidak valid' }, { status: 400 });
@@ -78,7 +87,9 @@ export async function POST(req: NextRequest) {
         `Tour: ${cleanTour}`,
         `Date: ${cleanDate}`,
         cleanTime ? `Pickup Time: ${cleanTime}` : null,
-        cleanPickup ? `Pickup Location: ${cleanPickup}` : null,
+        cleanArea ? `Pickup Area: ${cleanArea}` : null,
+        cleanPickup ? `Hotel/Address: ${cleanPickup}` : null,
+        cleanMapsUrl ? `📍 Google Maps: ${cleanMapsUrl}` : null,
         `Passengers: ${cleanPassengers}`,
         cleanNotes ? `Notes: ${cleanNotes}` : null,
       ].filter(Boolean).join('\n')
@@ -91,7 +102,9 @@ export async function POST(req: NextRequest) {
         `Tour: ${cleanTour}`,
         `Tanggal: ${cleanDate}`,
         cleanTime ? `Waktu Jemput: ${cleanTime}` : null,
-        cleanPickup ? `Lokasi Jemput: ${cleanPickup}` : null,
+        cleanArea ? `Area Jemput: ${cleanArea}` : null,
+        cleanPickup ? `Hotel/Alamat: ${cleanPickup}` : null,
+        cleanMapsUrl ? `📍 Google Maps: ${cleanMapsUrl}` : null,
         `Penumpang: ${cleanPassengers}`,
         cleanNotes ? `Catatan: ${cleanNotes}` : null,
       ].filter(Boolean).join('\n');

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { TourPackage, Vehicle } from '@/types/database';
 import { formatPrice, idrToUsd } from '@/lib/data';
 import { T, useLanguage } from '@/lib/language';
+import { MapsLocationPicker } from './MapsLocationPicker';
 import {
   User, Phone, Mail, MapPin, Calendar, Clock,
   Users, MessageSquare, CheckCircle, Loader2,
@@ -29,6 +30,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
   const [form, setForm] = useState({
     name: '', phone: '', email: '', country: '',
     tour: '', date: '', time: '08:00', pickup: '',
+    pickup_maps: '',
     area: '', passengers: '2', notes: '',
   });
   const [loading, setLoading] = useState(false);
@@ -86,7 +88,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               <T en="Confirm via WhatsApp">Konfirmasi via WhatsApp</T>
             </a>
             <button
-              onClick={() => { setResult(null); setForm({ name: '', phone: '', email: '', country: '', tour: '', date: '', time: '08:00', pickup: '', area: '', passengers: '2', notes: '' }); }}
+              onClick={() => { setResult(null); setForm({ name: '', phone: '', email: '', country: '', tour: '', date: '', time: '08:00', pickup: '', pickup_maps: '', area: '', passengers: '2', notes: '' }); }}
               className="text-white/40 text-sm hover:text-white/60 transition-colors"
             >
               <T en="Create new booking">Buat booking baru</T>
@@ -177,6 +179,11 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               value={form.pickup}
               onChange={v => update('pickup', v)}
               placeholder={t('Contoh: Hotel Katamaran Resort, Senggigi', 'e.g. Katamaran Resort, Senggigi')}
+            />
+
+            <MapsLocationPicker
+              value={form.pickup_maps}
+              onChange={v => update('pickup_maps', v)}
             />
           </div>
 
