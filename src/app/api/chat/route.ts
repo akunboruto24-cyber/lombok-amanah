@@ -13,14 +13,17 @@ function getClientIp(req: NextRequest): string {
     req.headers.get('x-real-ip') || 'unknown';
 }
 
-const BUSINESS_KNOWLEDGE = `## COMPANY — Lombok Nusa Alam Tour & Travel
+const BUSINESS_KNOWLEDGE = `## ⚠️ URGENT NOTICE (August 2026)
+**Sade Traditional Village TEMPORARILY CLOSED due to fire incident.** Sasak Cultural Tour is REPLACED with visit to **Ende Village** (another authentic Sasak village nearby, similar experience — traditional bamboo houses, ikat weaving, Sasak culture). All other destinations in the tour remain the same. When customer asks about Sade or Sasak Cultural Tour, always mention this update politely.
+
+## COMPANY — Lombok Nusa Alam Tour & Travel
 Licensed local tour operator in Lombok Island, Indonesia. 5+ years experience serving international & domestic guests.
 - Website: lomboknusaalam.com | WhatsApp: +62 821-4332-571 | Email: lomboknusalam@gmail.com
 - Address: Jl. Raya Tanjung, Kekait, Gunungsari, Lombok Barat, NTB 83351
 - Hours: Daily 06:00-22:00 WITA (UTC+8)
 
 ## TOUR PACKAGES (per group, max 4 people, includes: professional driver-guide, AC vehicle, fuel, mineral water, parking)
-1. **Sasak Cultural Tour** — Rp 850k / $53 — 8-10h. Sade Village → Mandalika Circuit → Kuta Beach → Merese Hill → Tanjung Aan
+1. **Sasak Cultural Tour** — Rp 850k / $53 — 8-10h. **Ende Village (replacing temporarily-closed Sade)** → Mandalika Circuit → Kuta Beach → Merese Hill → Tanjung Aan
 2. **Beach Tour** — Rp 850k / $53 — 8-10h. Selong Belanak → Mawun → Kuta → Tanjung Aan → Merese (sunset)
 3. **Mataram City Tour** — Rp 850k / $53 — 8-10h. Islamic Center → Monkey Forest → Narmada → Malimbu → Senggigi
 4. **Sembalun Highland** — Rp 900k / $56 — 10-12h. Bukit Selong → Taman Surga → Pusuk Sembalun → Strawberry Farm → Bayan Mosque
