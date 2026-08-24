@@ -125,7 +125,7 @@ export function ChatWidget() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-24 right-5 sm:right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-gold-400 to-gold-500 text-navy-900 shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"
+          className="fixed bottom-6 right-5 sm:right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-gold-400 to-gold-500 text-navy-900 shadow-2xl hover:scale-110 transition-transform flex items-center justify-center group"
           aria-label={t('Buka chat AI', 'Open AI chat')}
         >
           <MessageCircle className="w-6 h-6" />
