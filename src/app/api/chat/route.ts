@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 
-const GROQ_MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-20b';
-const GROQ_API = 'https://api.groq.com/openai/v1/chat/completions';
+const LLM_MODEL = process.env.LLM_MODEL || 'gemini/gemini-2.5-flash';
+const LLM_API_URL = process.env.LLM_API_URL || 'https://lite.koboillm.com/v1/chat/completions';
 
 const chatRateLimit = new Map<string, { count: number; resetTime: number }>();
 const CHAT_LIMIT = 30;
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
     chatRateLimit.set(ip, { count: 1, resetTime: now + CHAT_WINDOW });
   }
 
-  const apiKey = process.env.GROQ_API_KEY || process.env.GEMINI_API_KEY;
+  const apiKey = process.env.LLM_API_KEY || process.env.GROQ_API_KEY || process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: 'AI service unavailable' }, { status: 503 });
   }
@@ -124,7 +124,7 @@ export async function POST(req: NextRequest) {
   const language: 'id' | 'en' = lang === 'en' ? 'en' : 'id';
   const systemPrompt = buildSystemPrompt(language);
 
-  const groqMessages = [
+  const chatMessages = [
     { role: 'system', content: systemPrompt },
     ...messages.slice(-10).map((m: { role: string; content: string }) => ({
       role: m.role === 'user' ? 'user' : 'assistant',
@@ -133,26 +133,26 @@ export async function POST(req: NextRequest) {
   ];
 
   try {
-    const res = await fetch(GROQ_API, {
+    const res = await fetch(LLM_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: GROQ_MODEL,
-        messages: groqMessages,
-        max_tokens: 4000,
+        model: LLM_MODEL,
+        messages: chatMessages,
+        max_tokens: 2000,
         temperature: 0.6,
-        reasoning_effort: 'low',
       }),
     });
 
     if (!res.ok) {
       const err = await res.text();
-      console.error('[Chat] Groq API error', {
+      console.error('[Chat] LLM API error', {
         status: res.status,
-        model: GROQ_MODEL,
+        url: LLM_API_URL,
+        model: LLM_MODEL,
         keyPrefix: apiKey.substring(0, 6),
         error: err.substring(0, 500),
       });
