@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 
-const GEMINI_API = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 const chatRateLimit = new Map<string, { count: number; resetTime: number }>();
 const CHAT_LIMIT = 30;
@@ -329,11 +330,19 @@ export async function POST(req: NextRequest) {
 
     if (!res.ok) {
       const err = await res.text();
-      console.error('[Chat] Gemini error:', err);
+      console.error('[Chat] Gemini API error', {
+        status: res.status,
+        statusText: res.statusText,
+        model: GEMINI_MODEL,
+        keyPrefix: apiKey.substring(0, 6),
+        keyLength: apiKey.length,
+        error: err.substring(0, 500),
+      });
       return NextResponse.json({
         reply: language === 'en'
           ? 'Sorry, I\'m having trouble right now. Please contact us via WhatsApp: +62 821-4332-571 🌴'
           : 'Maaf, ada gangguan sebentar. Silakan hubungi WhatsApp kami: +62 821-4332-571 🌴',
+        _debug: process.env.NODE_ENV !== 'production' ? { status: res.status, error: err.substring(0, 200) } : undefined,
       });
     }
 
