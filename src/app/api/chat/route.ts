@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.0-flash';
-const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const GROQ_MODEL = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+const GROQ_API = 'https://api.groq.com/openai/v1/chat/completions';
 
 const chatRateLimit = new Map<string, { count: number; resetTime: number }>();
 const CHAT_LIMIT = 30;
@@ -285,7 +285,7 @@ export async function POST(req: NextRequest) {
     chatRateLimit.set(ip, { count: 1, resetTime: now + CHAT_WINDOW });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY || process.env.GEMINI_API_KEY;
   if (!apiKey) {
     return NextResponse.json({ error: 'AI service unavailable' }, { status: 503 });
   }
@@ -309,31 +309,35 @@ export async function POST(req: NextRequest) {
   const language: 'id' | 'en' = lang === 'en' ? 'en' : 'id';
   const systemPrompt = buildSystemPrompt(language);
 
-  const geminiHistory = messages.slice(-20).map((m: { role: string; content: string }) => ({
-    role: m.role === 'user' ? 'user' : 'model',
-    parts: [{ text: String(m.content).slice(0, 2000) }],
-  }));
+  const groqMessages = [
+    { role: 'system', content: systemPrompt },
+    ...messages.slice(-20).map((m: { role: string; content: string }) => ({
+      role: m.role === 'user' ? 'user' : 'assistant',
+      content: String(m.content).slice(0, 2000),
+    })),
+  ];
 
   try {
-    const res = await fetch(`${GEMINI_API}?key=${apiKey}`, {
+    const res = await fetch(GROQ_API, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
       body: JSON.stringify({
-        system_instruction: { parts: [{ text: systemPrompt }] },
-        contents: geminiHistory,
-        generationConfig: {
-          maxOutputTokens: 600,
-          temperature: 0.7,
-        },
+        model: GROQ_MODEL,
+        messages: groqMessages,
+        max_tokens: 600,
+        temperature: 0.7,
       }),
     });
 
     if (!res.ok) {
       const err = await res.text();
-      console.error('[Chat] Gemini API error', {
+      console.error('[Chat] Groq API error', {
         status: res.status,
         statusText: res.statusText,
-        model: GEMINI_MODEL,
+        model: GROQ_MODEL,
         keyPrefix: apiKey.substring(0, 6),
         keyLength: apiKey.length,
         error: err.substring(0, 500),
@@ -342,12 +346,11 @@ export async function POST(req: NextRequest) {
         reply: language === 'en'
           ? 'Sorry, I\'m having trouble right now. Please contact us via WhatsApp: +62 821-4332-571 🌴'
           : 'Maaf, ada gangguan sebentar. Silakan hubungi WhatsApp kami: +62 821-4332-571 🌴',
-        _debug: process.env.NODE_ENV !== 'production' ? { status: res.status, error: err.substring(0, 200) } : undefined,
       });
     }
 
     const data = await res.json();
-    let reply = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    let reply = data.choices?.[0]?.message?.content || '';
 
     let bookingData: Record<string, unknown> | null = null;
     let forwardToAdmin = false;
