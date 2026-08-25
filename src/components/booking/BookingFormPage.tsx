@@ -188,6 +188,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               value={form.pickup_maps}
               onChange={v => update('pickup_maps', v)}
               areaHint={form.area}
+              hotelName={form.pickup}
             />
           </div>
 
