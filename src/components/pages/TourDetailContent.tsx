@@ -126,24 +126,111 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               </section>
             )}
 
-            {tour.itinerary && tour.itinerary.length > 0 && (
+            {tour.itinerary && tour.itinerary.length > 0 && (() => {
+              const groupedByDay = tour.itinerary.reduce((acc, item) => {
+                const dayNum = item.day ?? 1;
+                if (!acc[dayNum]) acc[dayNum] = { title: item.day_title, title_en: item.day_title_en, items: [] };
+                acc[dayNum].items.push(item);
+                return acc;
+              }, {} as Record<number, { title?: string; title_en?: string; items: typeof tour.itinerary }>);
+              const dayNums = Object.keys(groupedByDay).map(Number).sort((a, b) => a - b);
+              const isMultiDay = dayNums.length > 1;
+
+              return (
+                <section>
+                  <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
+                    <T en="Itinerary">Itinerary</T>
+                  </h2>
+                  <div className="space-y-6">
+                    {dayNums.map((dayNum) => {
+                      const day = groupedByDay[dayNum];
+                      const dayLabel = isMultiDay
+                        ? (lang === 'en' ? day.title_en || `Day ${dayNum}` : day.title || `Hari ${dayNum}`)
+                        : null;
+                      return (
+                        <div key={dayNum}>
+                          {dayLabel && (
+                            <div className="flex items-center gap-3 mb-4">
+                              <div className="px-3 py-1 bg-gold-400 text-navy-900 text-[11px] font-bold uppercase tracking-wider rounded-full">
+                                <T en={`Day ${dayNum}`}>{`Hari ${dayNum}`}</T>
+                              </div>
+                              <h3 className="text-[15px] font-bold text-navy-900">{dayLabel.replace(/^(hari|day)\s*\d+\s*[—-]\s*/i, '')}</h3>
+                            </div>
+                          )}
+                          <div className="space-y-0 ml-1">
+                            {day.items!.map((item, i) => (
+                              <div key={i} className="flex gap-4 relative">
+                                {i < day.items!.length - 1 && (
+                                  <div className="absolute left-[19px] top-10 bottom-0 w-[2px] bg-gold-400/20" />
+                                )}
+                                <div className="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0 z-10">
+                                  <span className="text-gold-400 text-[11px] font-bold">{item.time}</span>
+                                </div>
+                                <div className="pb-5 pt-2">
+                                  <p className="text-[14px] font-medium text-navy-900">
+                                    {lang === 'en' ? item.activity_en || item.activity : item.activity}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })()}
+
+            {tour.is_multi_day && tour.price_tiers && tour.price_tiers.length > 0 && (
               <section>
-                <h2 className="text-xl font-display font-bold text-navy-900 mb-4">Itinerary</h2>
-                <div className="space-y-0">
-                  {tour.itinerary.map((item, i) => (
-                    <div key={i} className="flex gap-4 relative">
-                      {i < tour.itinerary!.length - 1 && (
-                        <div className="absolute left-[19px] top-10 bottom-0 w-[2px] bg-gold-400/20" />
-                      )}
-                      <div className="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0 z-10">
-                        <span className="text-gold-400 text-[12px] font-bold">{item.time}</span>
-                      </div>
-                      <div className="pb-6 pt-2">
-                        <p className="text-[14px] font-medium text-navy-900">{lang === 'en' ? item.activity_en || item.activity : item.activity}</p>
-                      </div>
-                    </div>
-                  ))}
+                <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
+                  <T en="Price per Person">Harga per Orang</T>
+                </h2>
+                <div className="overflow-hidden rounded-xl border border-navy-900/10">
+                  <table className="w-full text-[14px]">
+                    <thead className="bg-navy-900 text-white">
+                      <tr>
+                        <th className="text-left px-4 py-3 font-semibold">
+                          <T en="Group Size">Jumlah Peserta</T>
+                        </th>
+                        <th className="text-right px-4 py-3 font-semibold">
+                          <T en="Price / Person">Harga / Orang</T>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-navy-900/[0.05]">
+                      {tour.price_tiers.map((tier, i) => (
+                        <tr key={i} className={i === 1 ? 'bg-gold-400/[0.06]' : ''}>
+                          <td className="px-4 py-3 text-navy-900 font-medium">
+                            {lang === 'en' ? tier.label_en : tier.label}
+                            {i === 1 && (
+                              <span className="ml-2 text-[10px] font-bold text-gold-500 uppercase tracking-wider">
+                                <T en="Popular">Populer</T>
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-4 py-3 text-right font-bold text-navy-900">
+                            {tier.price_per_person > 0 ? (
+                              lang === 'en'
+                                ? formatPrice(idrToUsd(tier.price_per_person), 'USD')
+                                : formatPrice(tier.price_per_person)
+                            ) : (
+                              <span className="text-gold-500 text-[13px] font-semibold">
+                                <T en="Contact Us">Hubungi Kami</T>
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
+                <p className="text-[12px] text-navy-900/50 mt-2 italic">
+                  <T en="Prices exclude flight tickets and meals unless stated. Cash to driver on tour day.">
+                    Harga belum termasuk tiket pesawat & makanan kecuali disebutkan. Pembayaran cash ke driver di hari tour.
+                  </T>
+                </p>
               </section>
             )}
 

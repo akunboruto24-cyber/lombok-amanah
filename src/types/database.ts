@@ -88,6 +88,10 @@ export interface TourPackage {
   seo_title: string | null;
   seo_description: string | null;
   seo_keywords: string[];
+  price_per_person?: boolean;
+  price_tiers?: PriceTier[] | null;
+  is_multi_day?: boolean;
+  total_days?: number | null;
   // joined data
   destinations?: Destination[];
   vehicles?: Vehicle[];
@@ -100,6 +104,17 @@ export interface ItineraryItem {
   time: string;
   activity: string;
   activity_en: string;
+  day?: number;
+  day_title?: string;
+  day_title_en?: string;
+}
+
+export interface PriceTier {
+  label: string;
+  label_en: string;
+  price_per_person: number;
+  min_pax: number;
+  max_pax: number | null;
 }
 
 export interface Customer {
