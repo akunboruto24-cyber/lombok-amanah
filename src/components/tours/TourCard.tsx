@@ -35,18 +35,13 @@ export function TourCard({ tour }: { tour: TourPackage }) {
             </div>
           )}
           <div className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-navy-900 rounded-lg">
-            {tour.is_multi_day && tour.price_per_person && (
+            {tour.is_multi_day && (
               <div className="text-[9px] font-semibold text-navy-900/50 uppercase tracking-wider leading-none">
                 <T en="From">Mulai dari</T>
               </div>
             )}
             <div className="text-[14px] font-bold leading-tight">
               {lang === 'en' ? formatPrice(idrToUsd(tour.price), 'USD') : formatPrice(tour.price)}
-              {tour.is_multi_day && tour.price_per_person && (
-                <span className="text-[10px] font-medium text-navy-900/50">
-                  /<T en="person">orang</T>
-                </span>
-              )}
             </div>
           </div>
         </div>

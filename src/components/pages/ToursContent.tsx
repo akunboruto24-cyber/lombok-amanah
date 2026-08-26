@@ -5,18 +5,16 @@ import { TourCard } from '@/components/tours/TourCard';
 import { T, useLanguage } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
 
-type FilterKey = 'all' | 'daily' | 'full-day' | '2d' | '3d' | '4d' | '5d' | '6d' | '7d';
+type FilterKey = 'all' | 'full-day' | '2d' | '3d' | '4d' | '5d' | 'daily';
 
 function matchFilter(tour: TourPackage, filter: FilterKey): boolean {
   if (filter === 'all') return true;
-  if (filter === 'daily') return tour.category === 'daily_tour';
   if (filter === 'full-day') return tour.is_multi_day === true && tour.total_days === 1;
   if (filter === '2d') return tour.is_multi_day === true && tour.total_days === 2;
   if (filter === '3d') return tour.is_multi_day === true && tour.total_days === 3;
   if (filter === '4d') return tour.is_multi_day === true && tour.total_days === 4;
   if (filter === '5d') return tour.is_multi_day === true && tour.total_days === 5;
-  if (filter === '6d') return tour.is_multi_day === true && tour.total_days === 6;
-  if (filter === '7d') return tour.is_multi_day === true && tour.total_days === 7;
+  if (filter === 'daily') return tour.category === 'daily_tour';
   return true;
 }
 
@@ -25,15 +23,13 @@ export function ToursContent({ tours }: { tours: TourPackage[] }) {
   const [filter, setFilter] = useState<FilterKey>('all');
 
   const filters: { key: FilterKey; label: string; label_en: string }[] = [
-    { key: 'all', label: 'Semua', label_en: 'All Tours' },
-    { key: 'daily', label: 'Daily Tour', label_en: 'Daily Tour' },
+    { key: 'all', label: 'Semua Paket', label_en: 'All Packages' },
     { key: 'full-day', label: 'Full Day', label_en: 'Full Day' },
-    { key: '2d', label: '2 Hari', label_en: '2 Days' },
-    { key: '3d', label: '3 Hari', label_en: '3 Days' },
-    { key: '4d', label: '4 Hari', label_en: '4 Days' },
-    { key: '5d', label: '5 Hari', label_en: '5 Days' },
-    { key: '6d', label: '6 Hari', label_en: '6 Days' },
-    { key: '7d', label: '7 Hari', label_en: '7 Days' },
+    { key: '2d', label: '2 Hari 1 Malam', label_en: '2 Days 1 Night' },
+    { key: '3d', label: '3 Hari 2 Malam', label_en: '3 Days 2 Nights' },
+    { key: '4d', label: '4 Hari 3 Malam', label_en: '4 Days 3 Nights' },
+    { key: '5d', label: '5 Hari 4 Malam', label_en: '5 Days 4 Nights' },
+    { key: 'daily', label: 'Tour Harian', label_en: 'Daily Tours' },
   ];
 
   const filtered = useMemo(() => tours.filter(t => matchFilter(t, filter)), [tours, filter]);

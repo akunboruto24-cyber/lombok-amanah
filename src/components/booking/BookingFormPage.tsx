@@ -139,7 +139,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
                   <option value="" className="bg-[#1E293B]">{t('— Pilih paket tour —', '— Select tour package —')}</option>
                   {tours.map(tr => (
                     <option key={tr.id} value={tr.name} className="bg-[#1E293B]">
-                      {lang === 'en' ? tr.name_en || tr.name : tr.name} — {lang === 'en' ? formatPrice(idrToUsd(tr.price), 'USD') : formatPrice(tr.price)}
+                      {lang === 'en' ? tr.name_en || tr.name : tr.name}
                     </option>
                   ))}
                   <option value="Custom Tour" className="bg-[#1E293B]">{t('Custom Tour (pilih sendiri)', 'Custom Tour (your choice)')}</option>
@@ -154,6 +154,54 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               <InputField icon={Clock} label={t('Jam Jemput', 'Pickup Time')} value={form.time} onChange={v => update('time', v)} type="time" />
               <InputField icon={Users} label={t('Jumlah Penumpang', 'Passengers')} value={form.passengers} onChange={v => update('passengers', v)} type="number" />
             </div>
+
+            {(() => {
+              const selectedTour = tours.find(t => t.name === form.tour);
+              const paxCount = Math.max(1, parseInt(form.passengers) || 1);
+              if (!selectedTour || !selectedTour.price_tiers || selectedTour.price_tiers.length === 0) return null;
+              const tier = selectedTour.price_tiers.find(t =>
+                paxCount >= t.min_pax && (t.max_pax === null || paxCount <= t.max_pax)
+              );
+              if (!tier) return null;
+              const isCustom = tier.price_per_person === 0;
+              return (
+                <div className="p-4 bg-[#C8A45A]/10 border border-[#C8A45A]/30 rounded-xl">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <p className="text-white/60 text-xs uppercase tracking-wider font-semibold">
+                        <T en="Estimated Total Price">Estimasi Total Harga</T>
+                      </p>
+                      <p className="text-white/50 text-[11px] mt-0.5">
+                        <T en={`${paxCount} passenger${paxCount > 1 ? 's' : ''}`}>{`${paxCount} orang`}</T>
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      {isCustom ? (
+                        <div>
+                          <p className="text-[#C8A45A] text-lg font-bold">
+                            <T en="Contact Us">Hubungi Kami</T>
+                          </p>
+                          <p className="text-white/40 text-[10px]">
+                            <T en="For 5+ persons">Untuk 5+ orang</T>
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-[#C8A45A] text-xl font-bold leading-tight">
+                          {lang === 'en'
+                            ? formatPrice(idrToUsd(tier.price_per_person), 'USD')
+                            : formatPrice(tier.price_per_person)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-white/40 text-[10px] mt-2 leading-relaxed">
+                    <T en="* Transport, driver, fuel & parking only. Entrance fees, guide & meals not included — can be arranged with driver.">
+                      * Termasuk mobil, sopir, BBM & parkir saja. Tiket masuk, guide & makan tidak termasuk — bisa diatur dengan driver.
+                    </T>
+                  </p>
+                </div>
+              );
+            })()}
           </div>
 
           <div className="space-y-4 pt-4 border-t border-white/5">

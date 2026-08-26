@@ -185,7 +185,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
             {tour.is_multi_day && tour.price_tiers && tour.price_tiers.length > 0 && (
               <section>
                 <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
-                  <T en="Price per Person">Harga per Orang</T>
+                  <T en="Price by Group Size">Harga Sesuai Jumlah Peserta</T>
                 </h2>
                 <div className="overflow-hidden rounded-xl border border-navy-900/10">
                   <table className="w-full text-[14px]">
@@ -195,16 +195,16 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                           <T en="Group Size">Jumlah Peserta</T>
                         </th>
                         <th className="text-right px-4 py-3 font-semibold">
-                          <T en="Price / Person">Harga / Orang</T>
+                          <T en="Total Price">Total Harga</T>
                         </th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-navy-900/[0.05]">
                       {tour.price_tiers.map((tier, i) => (
-                        <tr key={i} className={i === 1 ? 'bg-gold-400/[0.06]' : ''}>
+                        <tr key={i} className={i === 2 ? 'bg-gold-400/[0.06]' : ''}>
                           <td className="px-4 py-3 text-navy-900 font-medium">
                             {lang === 'en' ? tier.label_en : tier.label}
-                            {i === 1 && (
+                            {i === 2 && (
                               <span className="ml-2 text-[10px] font-bold text-gold-500 uppercase tracking-wider">
                                 <T en="Popular">Populer</T>
                               </span>
@@ -227,8 +227,8 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                   </table>
                 </div>
                 <p className="text-[12px] text-navy-900/50 mt-2 italic">
-                  <T en="Prices exclude flight tickets and meals unless stated. Cash to driver on tour day.">
-                    Harga belum termasuk tiket pesawat & makanan kecuali disebutkan. Pembayaran cash ke driver di hari tour.
+                  <T en="Total price for the whole group (car + driver + fuel + parking). Entrance fees, guide fees, meals, and hotel are separate. Cash to driver on tour day.">
+                    Total harga untuk seluruh grup (mobil + sopir + BBM + parkir). Tiket masuk, biaya guide, makanan, dan hotel terpisah. Pembayaran cash ke driver di hari tour.
                   </T>
                 </p>
               </section>

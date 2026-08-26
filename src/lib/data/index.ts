@@ -127,8 +127,6 @@ const seedRatings: Record<string, { rating: number; count: number }> = {
   'tour-103': { rating: 5.0, count: 62 },
   'tour-104': { rating: 4.9, count: 38 },
   'tour-105': { rating: 5.0, count: 24 },
-  'tour-106': { rating: 4.8, count: 17 },
-  'tour-107': { rating: 5.0, count: 21 },
 };
 
 function calcAvgRating(tourId: string): number {
