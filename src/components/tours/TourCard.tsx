@@ -24,16 +24,22 @@ export function TourCard({ tour }: { tour: TourPackage }) {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           )}
-          {tour.is_popular && (
-            <div className="absolute top-3 left-3 px-3 py-1 bg-gold-400 text-navy-900 text-[10px] font-bold tracking-[0.1em] uppercase rounded-full">
-              Popular
+          <div className="absolute top-3 left-3 flex flex-col gap-1.5 items-start">
+            {tour.is_popular && (
+              <div className="px-3 py-1 bg-gold-400 text-navy-900 text-[10px] font-bold tracking-[0.1em] uppercase rounded-full">
+                Popular
+              </div>
+            )}
+            {tour.is_featured && !tour.is_popular && (
+              <div className="px-3 py-1 bg-navy-900 text-white text-[10px] font-bold tracking-[0.1em] uppercase rounded-full">
+                Featured
+              </div>
+            )}
+            <div className="px-2.5 py-1 bg-green-500 text-white text-[10px] font-bold tracking-wide uppercase rounded-full shadow-md flex items-center gap-1">
+              <span className="text-white">✓</span>
+              <T en="Free Pickup">Jemput Gratis</T>
             </div>
-          )}
-          {tour.is_featured && !tour.is_popular && (
-            <div className="absolute top-3 left-3 px-3 py-1 bg-navy-900 text-white text-[10px] font-bold tracking-[0.1em] uppercase rounded-full">
-              Featured
-            </div>
-          )}
+          </div>
           <div className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-navy-900 rounded-lg">
             {tour.is_multi_day && (
               <div className="text-[9px] font-semibold text-navy-900/50 uppercase tracking-wider leading-none">
