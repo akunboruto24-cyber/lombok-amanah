@@ -227,8 +227,8 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                   </table>
                 </div>
                 <p className="text-[12px] text-navy-900/50 mt-2 italic">
-                  <T en="Total price for the whole group (car + driver + fuel + parking). Entrance fees, guide fees, meals, and hotel are separate. Cash to driver on tour day.">
-                    Total harga untuk seluruh grup (mobil + sopir + BBM + parkir). Tiket masuk, biaya guide, makanan, dan hotel terpisah. Pembayaran cash ke driver di hari tour.
+                  <T en="Total price for the whole group (car + driver + fuel + parking). FREE hotel pickup & drop-off. Meals and hotel accommodation are separate. Cash to driver on tour day.">
+                    Total harga untuk seluruh grup (mobil + sopir + BBM + parkir). Jemput & antar hotel GRATIS. Makan dan hotel akomodasi terpisah. Pembayaran cash ke driver di hari tour.
                   </T>
                 </p>
               </section>

@@ -195,8 +195,8 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
                     </div>
                   </div>
                   <p className="text-white/40 text-[10px] mt-2 leading-relaxed">
-                    <T en="* Transport, driver, fuel & parking only. Entrance fees, guide & meals not included — can be arranged with driver.">
-                      * Termasuk mobil, sopir, BBM & parkir saja. Tiket masuk, guide & makan tidak termasuk — bisa diatur dengan driver.
+                    <T en="* Includes car, driver, fuel & parking. Free hotel pickup & drop-off. Driver will recommend the best spots around Lombok.">
+                      * Termasuk mobil, sopir, BBM & parkir. Jemput & antar hotel GRATIS. Driver siap merekomendasikan spot terbaik di seputaran Lombok.
                     </T>
                   </p>
                 </div>
