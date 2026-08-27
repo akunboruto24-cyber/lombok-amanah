@@ -507,7 +507,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-301', slug: 'mount-rinjani-2-days-1-night', name: 'Trek Rinjani Puncak — 2 Hari 1 Malam', name_en: 'Mount Rinjani Summit Trek — 2 Days 1 Night', category: 'multi_day',
     price: 3000000, price_usd: null, duration: '2 hari 1 malam', meeting_time: '06:00', finish_time: '18:00', max_passenger: 15,
-    cover_image: '/destinations/Bukit Selong Sembalun.jpg',
+    cover_image: '/destinations/Renjani.jpg',
     gallery: [], description: 'Pengalaman mendaki Gunung Rinjani (3.726 mdpl) ke puncak dalam 2 hari 1 malam via jalur Sembalun. Paket ALL-INCLUSIVE — sudah termasuk pemandu (guide) profesional bersertifikat, porter, tenda, sleeping bag, matras, semua makanan (3x sehari), air minum, tiket masuk Taman Nasional Rinjani, transportasi lokal, dan perlengkapan lengkap. Anda tinggal datang dan menikmati petualangan.',
     description_en: 'Experience trekking Mount Rinjani (3,726 masl) to the summit in 2 days 1 night via the Sembalun route. ALL-INCLUSIVE package — includes certified professional guide, porter, tent, sleeping bag, mattress, all meals (3x daily), drinking water, Rinjani National Park tickets, local transport, and full trekking equipment. Just come and enjoy the adventure.',
     itinerary: [
@@ -540,7 +540,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-302', slug: 'mount-rinjani-3-days-2-nights', name: 'Trek Rinjani Puncak & Danau Segara Anak — 3 Hari 2 Malam', name_en: 'Mount Rinjani Summit & Segara Anak Lake — 3 Days 2 Nights', category: 'multi_day',
     price: 2900000, price_usd: null, duration: '3 hari 2 malam', meeting_time: '06:00', finish_time: '18:00', max_passenger: 15,
-    cover_image: '/destinations/Bukit Selong Sembalun.jpg',
+    cover_image: '/destinations/Renjani.jpg',
     gallery: [], description: 'Trek Rinjani paling lengkap — puncak (3.726 mdpl), Danau Segara Anak, dan pemandian air panas alami. 3 hari 2 malam via Sembalun-Senaru. Paket ALL-INCLUSIVE: pemandu bersertifikat, porter, tenda, matras, semua makanan, air, tiket taman nasional, transport lokal, perlengkapan lengkap. Ideal untuk pengalaman mendaki Rinjani yang benar-benar utuh.',
     description_en: 'The most complete Rinjani trek — summit (3,726 masl), Segara Anak Lake, and natural hot springs. 3 days 2 nights via Sembalun-Senaru route. ALL-INCLUSIVE: certified guide, porter, tent, mattress, all meals, water, park tickets, local transport, complete equipment. Ideal for a truly complete Rinjani experience.',
     itinerary: [
@@ -574,7 +574,7 @@ export const tourPackages: TourPackage[] = [
   {
     id: 'tour-303', slug: 'lombok-whitewater-rafting', name: 'Petualangan Rafting Sungai Lombok', name_en: 'Lombok Whitewater Rafting Adventure', category: 'multi_day',
     price: 450000, price_usd: null, duration: '4-5 jam', meeting_time: '08:00', finish_time: '13:00', max_passenger: 30,
-    cover_image: '/destinations/Air Terjun Benang Kelambu.jpg',
+    cover_image: '/destinations/Rafting.jpg',
     gallery: [], description: 'Nikmati keseruan arung jeram (whitewater rafting) di sungai Lombok dengan jeram grade 2-3 yang menantang tapi aman untuk pemula. Paket ALL-INCLUSIVE — sudah termasuk pemandu (guide) rafting berpengalaman, perlengkapan lengkap (helm, pelampung, dayung, perahu karet), makan siang, dan transportasi antar-jemput. Cocok untuk keluarga, teman, dan pemula.',
     description_en: 'Enjoy the thrill of whitewater rafting on Lombok\'s rivers with grade 2-3 rapids — challenging yet safe for beginners. ALL-INCLUSIVE package — includes experienced rafting guide, complete gear (helmet, life vest, paddle, raft), lunch, and pickup/drop-off transport. Great for families, friends, and beginners.',
     itinerary: [
