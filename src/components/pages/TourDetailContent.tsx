@@ -7,6 +7,7 @@ import { T, useLanguage } from '@/lib/language';
 import { formatPrice, idrToUsd } from '@/lib/data';
 import { BookingForm } from '@/components/booking/BookingForm';
 import { DestinationCarousel } from '@/components/tours/DestinationCarousel';
+import { ReviewSection } from '@/components/tours/ReviewSection';
 import type { TourPackage, SiteSettings } from '@/types/database';
 
 export function TourDetailContent({ tour, settings }: { tour: TourPackage; settings: SiteSettings }) {
@@ -339,24 +340,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               </section>
             )}
 
-            {tour.reviews && tour.reviews.length > 0 && (
-              <section>
-                <h2 className="text-xl font-display font-bold text-navy-900 mb-4"><T en="Customer Reviews">Review Pelanggan</T></h2>
-                <div className="space-y-4">
-                  {tour.reviews.map((review) => (
-                    <div key={review.id} className="p-5 bg-slate-50 rounded-xl">
-                      <div className="flex items-center gap-1 mb-2">
-                        {Array.from({ length: review.rating }).map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
-                        ))}
-                      </div>
-                      <p className="text-[14px] text-navy-900/60 leading-[1.7] mb-3">{review.comment}</p>
-                      <p className="text-[12px] font-semibold text-navy-900">{review.customer?.name} — <span className="font-normal text-navy-900/40">{review.customer?.country}</span></p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+            <ReviewSection tourId={tour.id} seedReviews={tour.reviews || []} />
           </div>
 
           <div className="lg:col-span-1">
