@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Clock, MapPin, Users, Star } from 'lucide-react';
+import { Clock, MapPin, Users, Star, Sparkles } from 'lucide-react';
 import { formatPrice, idrToUsd } from '@/lib/data';
 import { T, useLanguage } from '@/lib/language';
 import type { TourPackage } from '@/types/database';
@@ -35,10 +35,6 @@ export function TourCard({ tour }: { tour: TourPackage }) {
                 Featured
               </div>
             )}
-            <div className="px-2.5 py-1 bg-green-500 text-white text-[10px] font-bold tracking-wide uppercase rounded-full shadow-md flex items-center gap-1">
-              <span className="text-white">✓</span>
-              <T en="Free Pickup">Jemput Gratis</T>
-            </div>
           </div>
           <div className="absolute bottom-3 right-3 px-3 py-1.5 bg-white/90 backdrop-blur-sm text-navy-900 rounded-lg">
             {tour.is_multi_day && (
@@ -68,11 +64,22 @@ export function TourCard({ tour }: { tour: TourPackage }) {
           </div>
         )}
 
-        {destNames && (
+        {tour.is_multi_day ? (
           <div className="flex items-start gap-2 mb-3">
-            <MapPin className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
-            <p className="text-[12px] text-navy-900/50 leading-[1.5] line-clamp-2">{destNames}</p>
+            <Sparkles className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
+            <p className="text-[12px] text-navy-900/60 leading-[1.5] line-clamp-3">
+              <T en="Freely explore anywhere in Lombok. We'll recommend hidden gems and popular spots you might not know yet. Click for full details.">
+                Bebas explore ke mana saja di Lombok. Kami rekomendasikan hidden gem & tempat populer yang mungkin belum Anda tahu. Klik untuk detail.
+              </T>
+            </p>
           </div>
+        ) : (
+          destNames && (
+            <div className="flex items-start gap-2 mb-3">
+              <MapPin className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
+              <p className="text-[12px] text-navy-900/50 leading-[1.5] line-clamp-2">{destNames}</p>
+            </div>
+          )
         )}
 
         <div className="flex items-center gap-4 pt-3 border-t border-navy-900/[0.06]">

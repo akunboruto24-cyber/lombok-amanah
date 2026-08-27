@@ -103,27 +103,52 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               </div>
             </section>
 
-            {tour.destinations && tour.destinations.length > 0 && (
-              <section>
-                <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
-                  <T en="Destinations">Destinasi</T>
-                  <span className="text-[13px] font-normal text-navy-900/40 ml-2">
-                    ({tour.destinations.length})
-                  </span>
-                </h2>
-                <DestinationCarousel destinations={tour.destinations} />
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {tour.destinations.map((dest) => (
-                    <div key={dest.id} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
-                      <MapPin className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <p className="text-[14px] font-semibold text-navy-900">{lang === 'en' ? dest.name_en || dest.name : dest.name}</p>
-                        <p className="text-[12px] text-navy-900/40 capitalize">{dest.category} • {dest.location}</p>
-                      </div>
-                    </div>
-                  ))}
+            {tour.is_multi_day ? (
+              <section className="rounded-2xl border border-gold-400/20 bg-gradient-to-br from-gold-400/5 to-transparent p-5 sm:p-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-gold-400" />
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <h2 className="text-lg font-display font-bold text-navy-900">
+                      <T en="Flexible Destinations — You Choose">Destinasi Fleksibel — Anda yang Pilih</T>
+                    </h2>
+                    <p className="text-[14px] text-navy-900/70 leading-relaxed">
+                      <T en="This is a private car & driver package — you are FREE to explore anywhere in Lombok. Beaches, waterfalls, villages, viewpoints, or hidden gems — the choice is yours.">
+                        Ini adalah paket sewa mobil pribadi + driver — Anda <strong>BEBAS</strong> explore ke mana saja di seputaran Lombok. Pantai, air terjun, desa tradisional, spot foto, atau hidden gems — semuanya sesuai keinginan Anda.
+                      </T>
+                    </p>
+                    <p className="text-[13px] text-navy-900/60 leading-relaxed">
+                      <T en="Our experienced driver will happily recommend popular spots, hidden gems, and beautiful places in Lombok that you might not know about yet — including places most tourists never see.">
+                        Driver kami yang berpengalaman siap merekomendasikan tempat-tempat populer, hidden gem, dan spot indah di Lombok yang mungkin belum Anda ketahui — termasuk tempat-tempat yang jarang dikunjungi turis.
+                      </T>
+                    </p>
+                  </div>
                 </div>
               </section>
+            ) : (
+              tour.destinations && tour.destinations.length > 0 && (
+                <section>
+                  <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
+                    <T en="Destinations">Destinasi</T>
+                    <span className="text-[13px] font-normal text-navy-900/40 ml-2">
+                      ({tour.destinations.length})
+                    </span>
+                  </h2>
+                  <DestinationCarousel destinations={tour.destinations} />
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {tour.destinations.map((dest) => (
+                      <div key={dest.id} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                        <MapPin className="w-4 h-4 text-gold-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-[14px] font-semibold text-navy-900">{lang === 'en' ? dest.name_en || dest.name : dest.name}</p>
+                          <p className="text-[12px] text-navy-900/40 capitalize">{dest.category} • {dest.location}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )
             )}
 
             {tour.itinerary && tour.itinerary.length > 0 && (() => {
