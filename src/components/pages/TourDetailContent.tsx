@@ -207,6 +207,30 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               );
             })()}
 
+            {tour.is_multi_day && tour.price_per_person && (!tour.price_tiers || tour.price_tiers.length === 0) && (
+              <section>
+                <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
+                  <T en="Package Price">Harga Paket</T>
+                </h2>
+                <div className="p-6 rounded-2xl border-2 border-gold-400/40 bg-gradient-to-br from-gold-400/10 to-transparent text-center">
+                  <p className="text-navy-900/60 text-[12px] uppercase tracking-wider font-semibold mb-2">
+                    <T en="All-Inclusive Package">Paket All-Inclusive</T>
+                  </p>
+                  <p className="text-navy-900 text-3xl sm:text-4xl font-bold">
+                    {lang === 'en' ? formatPrice(idrToUsd(tour.price), 'USD') : formatPrice(tour.price)}
+                    <span className="text-lg font-medium text-navy-900/60 ml-1">
+                      /<T en="person">orang</T>
+                    </span>
+                  </p>
+                  <p className="text-navy-900/50 text-[13px] mt-3 max-w-md mx-auto leading-relaxed">
+                    <T en="This is an ALL-INCLUSIVE package. Guide, equipment, meals, tickets, and transport are all covered. Pay total = price × number of persons.">
+                      Ini paket ALL-INCLUSIVE. Guide, perlengkapan, makanan, tiket, dan transportasi semua sudah termasuk. Pembayaran = harga × jumlah orang.
+                    </T>
+                  </p>
+                </div>
+              </section>
+            )}
+
             {tour.is_multi_day && tour.price_tiers && tour.price_tiers.length > 0 && (
               <section>
                 <h2 className="text-xl font-display font-bold text-navy-900 mb-4">

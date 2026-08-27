@@ -22,6 +22,18 @@ Licensed local tour operator in Lombok Island, Indonesia. 5+ years experience se
 - Address: Jl. Raya Tanjung, Kekait, Gunungsari, Lombok Barat, NTB 83351
 - Hours: Daily 06:00-22:00 WITA (UTC+8)
 
+## ALL-INCLUSIVE ADVENTURE PACKAGES (Special — includes EVERYTHING)
+Semua sudah termasuk: guide, tiket, perlengkapan, makanan, transportasi. Customer tinggal datang & menikmati.
+
+1. **Mount Rinjani Summit Trek — 2D1N** — Rp 3.000.000 per orang
+   Trek ke puncak Rinjani (3.726 mdpl) via Sembalun. All-inclusive: guide bersertifikat, porter, tenda, sleeping bag, makanan 3x/hari, tiket taman nasional, transport, perlengkapan lengkap.
+
+2. **Mount Rinjani Summit & Segara Anak Lake — 3D2N** — Rp 2.900.000 per orang
+   Trek Rinjani paling lengkap: puncak + Danau Segara Anak + air panas alami. All-inclusive sama dengan yang 2D1N + tambahan 1 malam camp di danau.
+
+3. **Lombok Whitewater Rafting Adventure** — Rp 450.000 per orang
+   Arung jeram grade 2-3 (aman untuk pemula). 4-5 jam. All-inclusive: guide rafting bersertifikat, perahu, helm, pelampung, makan siang, antar-jemput hotel, asuransi.
+
 ## MAIN PACKAGES (Multi-Day Flexible Trip — Transport & Driver Only)
 Semua paket: mobil AC + sopir profesional + BBM + parkir + JEMPUT & ANTAR HOTEL GRATIS. Fleksibel — bebas pilih destinasi di seputaran Lombok.
 

@@ -158,7 +158,39 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
             {(() => {
               const selectedTour = tours.find(t => t.name === form.tour);
               const paxCount = Math.max(1, parseInt(form.passengers) || 1);
-              if (!selectedTour || !selectedTour.price_tiers || selectedTour.price_tiers.length === 0) return null;
+              if (!selectedTour) return null;
+
+              // For all-inclusive per-person tours (Rinjani, Rafting)
+              if (selectedTour.price_per_person && (!selectedTour.price_tiers || selectedTour.price_tiers.length === 0)) {
+                const totalPrice = selectedTour.price * paxCount;
+                return (
+                  <div className="p-4 bg-[#C8A45A]/10 border border-[#C8A45A]/30 rounded-xl">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <p className="text-white/60 text-xs uppercase tracking-wider font-semibold">
+                          <T en="Total Price">Total Harga</T>
+                        </p>
+                        <p className="text-white/50 text-[11px] mt-0.5">
+                          {paxCount} <T en={`person${paxCount > 1 ? 's' : ''} × `}>orang × </T>
+                          {lang === 'en' ? formatPrice(idrToUsd(selectedTour.price), 'USD') : formatPrice(selectedTour.price)}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[#C8A45A] text-xl font-bold leading-tight">
+                          {lang === 'en' ? formatPrice(idrToUsd(totalPrice), 'USD') : formatPrice(totalPrice)}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-white/40 text-[10px] mt-2 leading-relaxed">
+                      <T en="* ALL-INCLUSIVE package: guide, equipment, meals, tickets, transport. Everything included.">
+                        * Paket ALL-INCLUSIVE: guide, perlengkapan, makanan, tiket, transportasi. Semua sudah termasuk.
+                      </T>
+                    </p>
+                  </div>
+                );
+              }
+
+              if (!selectedTour.price_tiers || selectedTour.price_tiers.length === 0) return null;
               const tier = selectedTour.price_tiers.find(t =>
                 paxCount >= t.min_pax && (t.max_pax === null || paxCount <= t.max_pax)
               );
