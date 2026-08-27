@@ -44,7 +44,7 @@ Total harga per grup (bukan per orang):
 7. **East Lombok Island** — Rp 950k. Gili Kondo, Pasir, Kapal
 8. **Waterfall Tour II (Senaru)** — Rp 950k. Sendang Gile + Tiu Kelep
 9. **East Lombok Beach** — Rp 950k. Pink Beach, Kura-Kura, Ekas
-10. **Tete Batu Premium** — Rp 2jt. Tete Batu Village, rice terraces, waterfalls
+10. **Tete Batu Package** — Rp 850k. Perjalanan ke Tete Batu (rice terraces, monkey forest, local village, hidden waterfalls). Note: pemandu lokal di 4 spot dibayar terpisah, kami rekomendasikan yg lebih murah.
 
 ## FREE PICKUP (SELLING POINT — always highlight)
 - FREE hotel pickup & drop-off for: Kuta Mandalika, Senggigi, Mataram, Cakranegara, BIL Airport, Praya, Kuta Lombok

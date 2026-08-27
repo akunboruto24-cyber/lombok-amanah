@@ -65,7 +65,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
 
             <section>
               <h2 className="text-xl font-display font-bold text-navy-900 mb-4">Overview</h2>
-              <p className="text-[15px] text-navy-900/60 leading-[1.8]">{lang === 'en' ? tour.description_en || tour.description : tour.description}</p>
+              <p className="text-[15px] text-navy-900/60 leading-[1.8] whitespace-pre-line">{lang === 'en' ? tour.description_en || tour.description : tour.description}</p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
                 {tour.duration && (
