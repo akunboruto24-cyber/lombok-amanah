@@ -231,20 +231,35 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               </section>
             )}
 
-            {tour.is_multi_day && tour.price_tiers && tour.price_tiers.length > 0 && (
+            {tour.is_multi_day && tour.price_tiers && tour.price_tiers.length > 0 && (() => {
+              const firstLabel = tour.price_tiers[0]?.label || '';
+              const isDurationTier = /hari|day|malam|night/i.test(firstLabel);
+              return (
               <section>
                 <h2 className="text-xl font-display font-bold text-navy-900 mb-4">
-                  <T en="Price by Group Size">Harga Sesuai Jumlah Peserta</T>
+                  {isDurationTier ? (
+                    <T en="Duration Options & Price">Pilihan Durasi & Harga</T>
+                  ) : (
+                    <T en="Price by Group Size">Harga Sesuai Jumlah Peserta</T>
+                  )}
                 </h2>
                 <div className="overflow-hidden rounded-xl border border-navy-900/10">
                   <table className="w-full text-[14px]">
                     <thead className="bg-navy-900 text-white">
                       <tr>
                         <th className="text-left px-4 py-3 font-semibold">
-                          <T en="Group Size">Jumlah Peserta</T>
+                          {isDurationTier ? (
+                            <T en="Duration">Durasi</T>
+                          ) : (
+                            <T en="Group Size">Jumlah Peserta</T>
+                          )}
                         </th>
                         <th className="text-right px-4 py-3 font-semibold">
-                          <T en="Total Price">Total Harga</T>
+                          {isDurationTier ? (
+                            <T en="Price / Person">Harga / Orang</T>
+                          ) : (
+                            <T en="Total Price">Total Harga</T>
+                          )}
                         </th>
                       </tr>
                     </thead>
@@ -276,12 +291,19 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
                   </table>
                 </div>
                 <p className="text-[12px] text-navy-900/50 mt-2 italic">
-                  <T en="Total price for the whole group (car + driver + fuel + parking). FREE hotel pickup & drop-off. Meals and hotel accommodation are separate. Cash to driver on tour day.">
-                    Total harga untuk seluruh grup (mobil + sopir + BBM + parkir). Jemput & antar hotel GRATIS. Makan dan hotel akomodasi terpisah. Pembayaran cash ke driver di hari tour.
-                  </T>
+                  {isDurationTier ? (
+                    <T en="Price per person, all-inclusive package. Choose your preferred duration when booking. Pay cash to driver/guide on tour day.">
+                      Harga per orang, paket all-inclusive. Pilih durasi yang diinginkan saat booking. Pembayaran cash ke driver/guide di hari tour.
+                    </T>
+                  ) : (
+                    <T en="Total price for the whole group (car + driver + fuel + parking). FREE hotel pickup & drop-off. Meals and hotel accommodation are separate. Cash to driver on tour day.">
+                      Total harga untuk seluruh grup (mobil + sopir + BBM + parkir). Jemput & antar hotel GRATIS. Makan dan hotel akomodasi terpisah. Pembayaran cash ke driver di hari tour.
+                    </T>
+                  )}
                 </p>
               </section>
-            )}
+              );
+            })()}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {tour.includes.length > 0 && (
