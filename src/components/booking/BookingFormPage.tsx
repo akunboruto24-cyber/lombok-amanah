@@ -32,11 +32,12 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
     tour: '', date: '', time: '08:00', pickup: '',
     pickup_maps: '',
     area: '', passengers: '2', notes: '',
+    tierIndex: 0,
   });
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ bookingCode: string; whatsappUrl: string } | null>(null);
 
-  function update(field: string, value: string) {
+  function update(field: string, value: string | number) {
     setForm(prev => ({ ...prev, [field]: value }));
   }
 
@@ -91,7 +92,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               <T en="Open WhatsApp">Buka WhatsApp</T>
             </a>
             <button
-              onClick={() => { setResult(null); setForm({ name: '', phone: '', email: '', country: '', tour: '', date: '', time: '08:00', pickup: '', pickup_maps: '', area: '', passengers: '2', notes: '' }); }}
+              onClick={() => { setResult(null); setForm({ name: '', phone: '', email: '', country: '', tour: '', date: '', time: '08:00', pickup: '', pickup_maps: '', area: '', passengers: '2', notes: '', tierIndex: 0 }); }}
               className="text-white/40 text-sm hover:text-white/60 transition-colors"
             >
               <T en="Create new booking">Buat booking baru</T>
@@ -160,8 +161,11 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
               const paxCount = Math.max(1, parseInt(form.passengers) || 1);
               if (!selectedTour) return null;
 
-              // For all-inclusive per-person tours (Rinjani, Rafting)
-              if (selectedTour.price_per_person && (!selectedTour.price_tiers || selectedTour.price_tiers.length === 0)) {
+              const isPerPerson = selectedTour.price_per_person === true;
+              const hasTiers = selectedTour.price_tiers && selectedTour.price_tiers.length > 0;
+
+              // Rafting: per-person, no tiers
+              if (isPerPerson && !hasTiers) {
                 const totalPrice = selectedTour.price * paxCount;
                 return (
                   <div className="p-4 bg-[#C8A45A]/10 border border-[#C8A45A]/30 rounded-xl">
@@ -171,7 +175,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
                           <T en="Total Price">Total Harga</T>
                         </p>
                         <p className="text-white/50 text-[11px] mt-0.5">
-                          {paxCount} <T en={`person${paxCount > 1 ? 's' : ''} × `}>orang × </T>
+                          {paxCount} <T en={paxCount > 1 ? 'persons × ' : 'person × '}>orang × </T>
                           {lang === 'en' ? formatPrice(idrToUsd(selectedTour.price), 'USD') : formatPrice(selectedTour.price)}
                         </p>
                       </div>
@@ -190,8 +194,79 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
                 );
               }
 
-              if (!selectedTour.price_tiers || selectedTour.price_tiers.length === 0) return null;
-              const tier = selectedTour.price_tiers.find(t =>
+              // Rinjani: per-person with duration tiers
+              if (isPerPerson && hasTiers) {
+                const tiers = selectedTour.price_tiers!;
+                const tierIdx = Math.min(form.tierIndex, tiers.length - 1);
+                const tier = tiers[tierIdx];
+                const totalPrice = tier.price_per_person * paxCount;
+                return (
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-white/50 text-xs font-medium mb-2">
+                        <T en="Choose Duration">Pilih Durasi</T>
+                      </label>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {tiers.map((t, i) => {
+                          const active = i === tierIdx;
+                          return (
+                            <button
+                              key={i}
+                              type="button"
+                              onClick={() => update('tierIndex', i)}
+                              className={`px-3 py-2.5 rounded-xl text-left transition-all border ${
+                                active
+                                  ? 'bg-[#C8A45A]/20 border-[#C8A45A] text-white'
+                                  : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10'
+                              }`}
+                            >
+                              <div className="text-[13px] font-semibold">
+                                {lang === 'en' ? t.label_en : t.label}
+                              </div>
+                              <div className="text-[11px] text-[#C8A45A] font-bold mt-0.5">
+                                {lang === 'en'
+                                  ? formatPrice(idrToUsd(t.price_per_person), 'USD')
+                                  : formatPrice(t.price_per_person)}
+                                <span className="text-white/40 font-normal">
+                                  {' '}/<T en="person">orang</T>
+                                </span>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="p-4 bg-[#C8A45A]/10 border border-[#C8A45A]/30 rounded-xl">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1">
+                          <p className="text-white/60 text-xs uppercase tracking-wider font-semibold">
+                            <T en="Total Price">Total Harga</T>
+                          </p>
+                          <p className="text-white/50 text-[11px] mt-0.5">
+                            {paxCount} <T en={paxCount > 1 ? 'persons × ' : 'person × '}>orang × </T>
+                            {lang === 'en' ? formatPrice(idrToUsd(tier.price_per_person), 'USD') : formatPrice(tier.price_per_person)}
+                            {' '}({lang === 'en' ? tier.label_en : tier.label})
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-[#C8A45A] text-xl font-bold leading-tight">
+                            {lang === 'en' ? formatPrice(idrToUsd(totalPrice), 'USD') : formatPrice(totalPrice)}
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-white/40 text-[10px] mt-2 leading-relaxed">
+                        <T en="* ALL-INCLUSIVE: guide, porter, tent, meals, park tickets, transport. Everything included.">
+                          * ALL-INCLUSIVE: guide, porter, tenda, makanan, tiket taman nasional, transport. Semua sudah termasuk.
+                        </T>
+                      </p>
+                    </div>
+                  </div>
+                );
+              }
+
+              // Flex multi-day: group tiers (total price for whole group)
+              if (!hasTiers) return null;
+              const tier = selectedTour.price_tiers!.find(t =>
                 paxCount >= t.min_pax && (t.max_pax === null || paxCount <= t.max_pax)
               );
               if (!tier) return null;
@@ -204,7 +279,7 @@ export function BookingFormPage({ tours, vehicles }: { tours: TourPackage[]; veh
                         <T en="Estimated Total Price">Estimasi Total Harga</T>
                       </p>
                       <p className="text-white/50 text-[11px] mt-0.5">
-                        <T en={`${paxCount} passenger${paxCount > 1 ? 's' : ''}`}>{`${paxCount} orang`}</T>
+                        {paxCount} <T en={paxCount > 1 ? 'passengers' : 'passenger'}>orang</T>
                       </p>
                     </div>
                     <div className="text-right">
