@@ -104,7 +104,7 @@ export function TourDetailContent({ tour, settings }: { tour: TourPackage; setti
               </div>
             </section>
 
-            {tour.is_multi_day ? (
+            {tour.is_multi_day && !tour.price_per_person ? (
               <section className="rounded-2xl border border-gold-400/20 bg-gradient-to-br from-gold-400/5 to-transparent p-5 sm:p-6">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-full bg-gold-400/10 flex items-center justify-center flex-shrink-0">

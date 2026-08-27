@@ -69,7 +69,28 @@ export function TourCard({ tour }: { tour: TourPackage }) {
           </div>
         )}
 
-        {tour.is_multi_day ? (
+        {tour.is_multi_day && tour.price_per_person ? (
+          // All-inclusive adventure packages (Rinjani, Rafting) — show specific package tagline
+          <div className="flex items-start gap-2 mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
+            <p className="text-[12px] text-navy-900/60 leading-[1.5] line-clamp-3">
+              {tour.slug.includes('rinjani') ? (
+                <T en="Guided trek to Mount Rinjani summit (3,726 masl) via Sembalun route. ALL-INCLUSIVE: guide, porter, tent, meals, park tickets — everything.">
+                  Trek berpandu ke puncak Gunung Rinjani (3.726 mdpl) via jalur Sembalun. ALL-INCLUSIVE: guide, porter, tenda, makanan, tiket taman nasional — semua sudah termasuk.
+                </T>
+              ) : tour.slug.includes('rafting') ? (
+                <T en="Whitewater rafting on Lombok river (grade 2-3 rapids). ALL-INCLUSIVE: guide, raft, safety gear, lunch, hotel pickup — everything.">
+                  Rafting arus deras di sungai Lombok (jeram grade 2-3). ALL-INCLUSIVE: guide, perahu, alat keselamatan, makan siang, antar-jemput hotel — semua sudah termasuk.
+                </T>
+              ) : (
+                <T en="All-inclusive adventure package. Click for full details.">
+                  Paket adventure all-inclusive. Klik untuk detail lengkap.
+                </T>
+              )}
+            </p>
+          </div>
+        ) : tour.is_multi_day ? (
+          // Flex multi-day tours (Full Day to 5D4N) — free explore
           <div className="flex items-start gap-2 mb-3">
             <Sparkles className="w-3.5 h-3.5 text-gold-400 mt-0.5 flex-shrink-0" />
             <p className="text-[12px] text-navy-900/60 leading-[1.5] line-clamp-3">
