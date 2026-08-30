@@ -26,9 +26,10 @@ Licensed local tour operator in Lombok Island, Indonesia. 5+ years experience se
 Semua sudah termasuk: guide, tiket, perlengkapan, makanan, transportasi. Customer tinggal datang & menikmati.
 
 1. **Trek Rinjani Lombok** (1 paket, 2 pilihan durasi) — max 15 orang per group
-   - Opsi 2D1N: Rp 3.000.000/orang — ke puncak via Sembalun
-   - Opsi 3D2N: Rp 2.900.000/orang — puncak + Danau Segara Anak + air panas alami
+   - Opsi 2D1N: Rp 2.950.000/orang — ke puncak via Sembalun
+   - Opsi 3D2N: Rp 3.250.000/orang — puncak + Danau Segara Anak + air panas alami
    All-inclusive: guide bersertifikat, porter, tenda, sleeping bag, makanan 3x/hari, tiket taman nasional, transport, perlengkapan lengkap.
+   **CATATAN PENTING**: Untuk durasi lebih panjang (4 hari 3 malam ke atas) atau paket custom Rinjani, ARAHKAN CUSTOMER HUBUNGI ADMIN LANGSUNG via WhatsApp +62 821-4332-571 untuk quote khusus. JANGAN mengarang harga untuk paket di luar 2D1N dan 3D2N.
 
 2. **Rafting Adventure** — Rp 450.000/orang, max 3 orang per booking
    Arung jeram grade 2-3 (aman untuk pemula). 4-5 jam. All-inclusive: guide rafting bersertifikat, perahu, helm, pelampung, makan siang, antar-jemput hotel, asuransi.
