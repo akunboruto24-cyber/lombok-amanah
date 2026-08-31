@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="36" fill="#0F172A"/>
+  <circle cx="130" cy="60" r="18" fill="#C8A45A"/>
+  <path d="M 18 148 L 68 58 L 94 98 L 122 42 L 162 148 Z" fill="#C8A45A"/>
+  <path d="M 10 160 Q 40 148 68 160 Q 96 172 126 160 Q 148 152 170 160" stroke="#C8A45A" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <text x="90" y="176" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#C8A45A" text-anchor="middle" opacity="0.85">LOMBOK NUSA ALAM</text>
+</svg>
