@@ -32,7 +32,7 @@ Semua sudah termasuk: guide, tiket, perlengkapan, makanan, transportasi. Custome
    **CATATAN PENTING**: Untuk durasi lebih panjang (4 hari 3 malam ke atas) atau paket custom Rinjani, ARAHKAN CUSTOMER HUBUNGI ADMIN LANGSUNG via WhatsApp +62 821-4332-571 untuk quote khusus. JANGAN mengarang harga untuk paket di luar 2D1N dan 3D2N.
 
 2. **Rafting Adventure** — Rp 450.000/orang, max 3 orang per booking
-   Arung jeram grade 2-3 (aman untuk pemula). 4-5 jam. All-inclusive: guide rafting bersertifikat, perahu, helm, pelampung, makan siang, antar-jemput hotel, asuransi.
+   Arung jeram grade 2-3 (aman untuk pemula). Durasi aktivitas rafting 30-60 menit. All-inclusive: guide rafting bersertifikat, perahu, helm, pelampung, makan siang, snack, air minum, antar-jemput hotel.
 
 ## MAIN PACKAGES (Multi-Day Flexible Trip — Transport & Driver Only)
 Semua paket: mobil AC + sopir profesional + BBM + parkir + JEMPUT & ANTAR HOTEL GRATIS. Fleksibel — bebas pilih destinasi di seputaran Lombok.

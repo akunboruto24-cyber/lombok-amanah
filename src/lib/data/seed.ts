@@ -557,7 +557,7 @@ export const tourPackages: TourPackage[] = [
 
   {
     id: 'tour-303', slug: 'lombok-whitewater-rafting', name: 'Rafting Adventure', name_en: 'Rafting Adventure', category: 'multi_day',
-    price: 450000, price_usd: null, duration: '4-5 jam', meeting_time: '08:00', finish_time: '13:00', max_passenger: 3,
+    price: 450000, price_usd: null, duration: '30-60 menit (aktivitas rafting)', meeting_time: '08:00', finish_time: '13:00', max_passenger: 3,
     cover_image: '/destinations/Rafting.jpg',
     gallery: [], description: 'Nikmati keseruan arung jeram (whitewater rafting) di sungai Lombok dengan jeram grade 2-3 yang menantang tapi aman untuk pemula. Paket ALL-INCLUSIVE — sudah termasuk pemandu (guide) rafting berpengalaman, perlengkapan lengkap (helm, pelampung, dayung, perahu karet), makan siang, dan transportasi antar-jemput. Cocok untuk keluarga, teman, dan pemula.',
     description_en: 'Enjoy the thrill of whitewater rafting on Lombok\'s rivers with grade 2-3 rapids — challenging yet safe for beginners. ALL-INCLUSIVE package — includes experienced rafting guide, complete gear (helmet, life vest, paddle, raft), lunch, and pickup/drop-off transport. Great for families, friends, and beginners.',
@@ -570,7 +570,7 @@ export const tourPackages: TourPackage[] = [
       { time: '13:00', day: 1, day_title: 'Rafting Adventure', day_title_en: 'Rafting Adventure', activity: 'Antar kembali ke hotel', activity_en: 'Drop-off at hotel' },
     ],
     includes: [
-      'Trip rafting selama 45 menit',
+      'Trip rafting durasi 30-60 menit',
       'Pemandu profesional (professional guide)',
       'Perlengkapan rafting standar (helm, pelampung, dayung, perahu karet)',
       'Air mineral',
@@ -578,7 +578,7 @@ export const tourPackages: TourPackage[] = [
       'Makan siang',
     ],
     includes_en: [
-      '45 minutes rafting trip',
+      '30-60 minutes rafting trip',
       'Professional guide',
       'Standard rafting equipment (helmet, life vest, paddle, raft)',
       'Mineral water',
